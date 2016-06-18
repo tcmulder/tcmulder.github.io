@@ -2,4 +2,4 @@
 title: Credits
 ---
 
-dev
+* Details
