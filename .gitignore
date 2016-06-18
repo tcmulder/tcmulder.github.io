@@ -1,0 +1,8 @@
+.DS_Store
+sitemap.xml
+sitemap.xml.gz
+webhook.log
+.jekyll-metadata
+.sass-cache/
+node_modules/
+_site/
