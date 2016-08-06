@@ -12,14 +12,14 @@
 \*------------------------------------*/
 
 //primary colors / page anchor tags
-$color-1:           #2b2b2b;
-$color-1-light:     lighten($color-1,20%);
-$color-1-dark:      darken($color-1,20%);
+$color-1:           #04d2b1;
+$color-1-light:     #19ffda;
+$color-1-dark:      #00caa9;
 
 //secondary colors / global nav and Local Nav.
-$color-2:           #007DAB;
+$color-2:           #284e64;
 $color-2-light:     lighten($color-2,20%);
-$color-2-dark:      darken($color-2,20%);
+$color-2-dark:      darken($color-2,5%);
 
 //tertiary colors / secondary global nav and secondary local nav.
 $color-3:           #F79021;
@@ -35,13 +35,16 @@ $color-meh:         #EBE857;
     ::Breakpoints
 \*------------------------------------*/
 $galaxy:        1140px;
-$solarsystem:   1024px;
-$planetary:     480px;
+$solarsystem:   960px;
+$planetary:     500px;
 
 /*------------------------------------*\
     ::Layout
 \*------------------------------------*/
 $pad:       0.9375rem;
+$gap:       $pad;
+$gap--big:  $gap*2;
+$gap--baby: $gap*1.5;
 
 /*------------------------------------*\
     ::Text Styling

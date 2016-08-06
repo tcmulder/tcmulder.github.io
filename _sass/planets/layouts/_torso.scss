@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    ::Torso
+\*------------------------------------*/
+.main-torso__col {
+    float: left;
+    width: 33.33%;
+    padding: 0 $gap;
+    @include bp($solarsystem){
+        width: 50%;
+    }
+    @include bp($planetary){
+        width: 100%;
+    }
+}

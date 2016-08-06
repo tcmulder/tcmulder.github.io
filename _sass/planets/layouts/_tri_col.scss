@@ -1,0 +1,80 @@
+/*------------------------------------*\
+    ::Tri Col Layout
+\*------------------------------------*/
+.detail { // left col
+    /*TEMP*/box-shadow:0 0 0 1px rgba(red,.5) inset;background-color:rgba(red,.5);
+}
+.exp { // center col
+    /*TEMP*/box-shadow:0 0 0 1px rgba(whitesmoke,.5) inset;background-color:rgba(whitesmoke,.5);
+    @include clearfix();
+    $timeline-width: 4em; // timeline bar's width
+    $timeline-gaps: 7em; // each year period's height
+    $year-word-height: .75em; // the height of the "20xx" word for centering
+    @mixin year($start-year, $end-year, $total-years: 2016) {
+        top: ($total-years - $end-year + 1) * $timeline-gaps + $year-word-height;
+        height: ($end-year - $start-year) * $timeline-gaps;
+    }
+    position: relative;
+    padding-right: 0;
+    &__timeline {
+        float: right;
+        width: $timeline-width;
+        border: 0 solid $color-2;
+        border-width: 0 3px;
+    }
+    &__year {
+        /*TEMP*/box-shadow:0 0 0 1px rgba(purple,.5) inset;background-color:rgba(purple,.5);
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: $timeline-gaps;
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            border-top: 3px solid $color-2;
+            width: .4em;
+            top: .7em;
+        }
+        &:before {
+            left: 0;
+        }
+        &:after {
+            right: 0;
+        }
+    }
+    &__group {
+        position: absolute;
+        left: 0;
+        right: $timeline-width;
+        &--zenman {
+            @include year(2012, 2016);
+        }
+        &--du {
+            @include year(2011, 2012);
+        }
+        &--tcmulder {
+            @include year(2010, 2011);
+        }
+        &--usmc {
+            @include year(2006, 2010);
+        }
+        &--ptc {
+            @include year(2002, 2006);
+        }
+        &--t-creative {
+            @include year(2002, 2006);
+        }
+        &--tech {
+            @include year(2002, 2006);
+        }
+        /*TEMP*/box-shadow:0 0 0 1px rgba(tomato,.5) inset;background-color:rgba(tomato,.5);
+    }
+}
+.achieve { // right col
+    /*TEMP*/box-shadow:0 0 0 1px rgba(blue,.5) inset;background-color:rgba(blue,.5);
+    @include bp($solarsystem){
+        width: 100%;
+    }
+}
