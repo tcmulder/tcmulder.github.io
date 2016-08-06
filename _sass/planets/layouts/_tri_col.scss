@@ -1,53 +1,51 @@
 /*------------------------------------*\
     ::Tri Col Layout
 \*------------------------------------*/
-.detail { // left col
-    /*TEMP*/box-shadow:0 0 0 1px rgba(red,.5) inset;background-color:rgba(red,.5);
-}
-.exp { // center col
-    /*TEMP*/box-shadow:0 0 0 1px rgba(whitesmoke,.5) inset;background-color:rgba(whitesmoke,.5);
-    @include clearfix();
-    $timeline-width: 4em; // timeline bar's width
-    $timeline-gaps: 7em; // each year period's height
-    $year-word-height: .75em; // the height of the "20xx" word for centering
-    @mixin year($start-year, $end-year, $total-years: 2016) {
-        top: ($total-years - $end-year + 1) * $timeline-gaps + $year-word-height;
+
+/*------------------------------------*\
+    ::Common Vars
+\*------------------------------------*/
+
+$timeline-width:            3em; // timeline bar's width
+$timeline-gaps:             7em; // each year period's height
+$timeline-border-width:     3px; // all timeline borders
+$year-word-height:          .85em; // the height of the "20xx" word for centering
+
+/*------------------------------------*\
+    ::Year Position Mixin
+\*------------------------------------*/
+// Usage:
+// .el {
+//     @include year(2010, 2015); // spans 2010 to 2015
+//     @include year(false, 2015); // starts at 2015 with auto height
+//     @include year(false, 2015.5); // starts at Jul 2, 2015 with auto height
+// }
+@mixin year($start-year, $end-year, $total-years: 2016) {
+    top: ($total-years - $end-year + 1) * $timeline-gaps + $year-word-height;
+    @if $start-year != false {
         height: ($end-year - $start-year) * $timeline-gaps;
     }
+}
+
+.detail { // left col
+    background-color: $color-bg--dark;
+}
+.exp { // center col
+    @include clearfix();
     position: relative;
     padding-right: 0;
-    &__timeline {
-        float: right;
-        width: $timeline-width;
-        border: 0 solid $color-2;
-        border-width: 0 3px;
-    }
-    &__year {
-        /*TEMP*/box-shadow:0 0 0 1px rgba(purple,.5) inset;background-color:rgba(purple,.5);
-        position: relative;
-        display: block;
-        text-align: center;
-        width: 100%;
-        height: $timeline-gaps;
-        &:before,
-        &:after {
-            content: "";
-            position: absolute;
-            border-top: 3px solid $color-2;
-            width: .4em;
-            top: .7em;
-        }
-        &:before {
-            left: 0;
-        }
-        &:after {
-            right: 0;
-        }
-    }
     &__group {
+         // /*TEMP*/box-shadow:0 0 0 1px rgba(tomato,.5) inset;background-color:rgba(tomato,.5);
         position: absolute;
         left: 0;
         right: $timeline-width;
+        padding: 0 $gap;
+        &--title {
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
         &--zenman {
             @include year(2012, 2016);
         }
@@ -69,12 +67,119 @@
         &--tech {
             @include year(2002, 2006);
         }
-        /*TEMP*/box-shadow:0 0 0 1px rgba(tomato,.5) inset;background-color:rgba(tomato,.5);
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            border: $timeline-border-width solid $color-2;
+            z-index: 10;
+        }
+        &:before {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-width: $timeline-border-width 0 0;
+        }
+        &:after {
+            right: -$timeline-border-width*.5;
+            bottom: $timeline-border-width*.4;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: $color-bg--light;
+            transform: translate(50%, 50%);
+        }
+    }
+    &__timeline {
+        float: right;
+        width: $timeline-width;
+        border: 0 solid $color-2;
+        border-width: 0 $timeline-border-width;
+        margin: 0;
+        padding: 0;
+    }
+    &__year {
+         // /*TEMP*/box-shadow:0 0 0 1px rgba(purple,.5) inset;background-color:rgba(purple,.5);
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: $timeline-gaps;
+        list-style: none;
+        span {
+            font-size: .75em;
+        }
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            border-top: $timeline-border-width solid $color-2;
+            width: .4em;
+            top: .7em;
+        }
+        &:before {
+            left: 0;
+        }
+        &:after {
+            right: 0;
+        }
     }
 }
 .achieve { // right col
-    /*TEMP*/box-shadow:0 0 0 1px rgba(blue,.5) inset;background-color:rgba(blue,.5);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
     @include bp($solarsystem){
+        position: relative;
         width: 100%;
     }
+    &__group {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding: 0 $gap 0 3em;
+        transform: translateY(-50%);
+        &--senior {
+            @include year(false, 2012);
+        }
+        &--lead {
+
+        }
+        &--goodcookie {
+
+        }
+        &--usmc {
+
+        }
+        &--tech {
+
+        }
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            border: $timeline-border-width solid $color-2;
+            z-index: 10;
+        }
+        &:before {
+            left: 0;
+            width: 2em;
+            top: 50%;
+            border-width: $timeline-border-width 0 0;
+            transform: translateY(-100%);
+        }
+        &:after {
+            left: -.1em;
+            top: calc(50% - .1em);
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: $color-bg--light;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+.achieve__group--goodcookie {
+    opacity: .5;
 }

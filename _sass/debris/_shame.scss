@@ -3,10 +3,6 @@
 \*------------------------------------*/
 
 // just so my eyes don't hurt
-body {
-    background-color: #00caa9;
-    font-family: 'Vollkorn', serif;
-}
 header, footer {
     text-align: center;
     font-style: italic;
@@ -46,17 +42,3 @@ a {
         transition: top 200ms;
     }
 }
-%h0 {
-    font-family: 'Signika', sans-serif;
-    font-weight: bold; // allows to extend non headings consistently
-    text-shadow: 0 1px 1px rgba(#000,.2);
-    color: aquamarine;
-}
-// %h1 {}
-// %h2 {}
-// %h3 {}
-// %h4 {}
-// %h5 {}
-// %h6 {}
-/* implementations: */%h1, %h2, %h3, %h4, %h5, %h6 {@extend %h0;}h1{@extend%h1;}h2{@extend%h2;}h3{@extend%h3;}h4{@extend%h4;}h5{@extend%h5;}h6{@extend%h6;}
-

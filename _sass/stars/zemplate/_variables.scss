@@ -19,6 +19,7 @@ $color-1-dark:      #00caa9;
 //secondary colors / global nav and Local Nav.
 $color-2:           #284e64;
 $color-2-light:     lighten($color-2,20%);
+$color-2-lightest:  #fff;
 $color-2-dark:      darken($color-2,5%);
 
 //tertiary colors / secondary global nav and secondary local nav.
@@ -31,6 +32,10 @@ $color-good:        #6ADE72;
 $color-bad:         #DE5D5D;
 $color-meh:         #EBE857;
 
+//global colors
+$color-bg--dark:    $color-1-dark;
+$color-bg--light:   $color-2-lightest;
+
 /*------------------------------------*\
     ::Breakpoints
 \*------------------------------------*/
@@ -41,10 +46,15 @@ $planetary:     500px;
 /*------------------------------------*\
     ::Layout
 \*------------------------------------*/
-$pad:       0.9375rem;
-$gap:       $pad;
-$gap--big:  $gap*2;
-$gap--baby: $gap*1.5;
+$pad:           0.9375rem;
+$gap:           $pad;
+$gap--big:      $gap*2;
+$gap--baby:     $gap*1.5;
+
+$pad-em:         0.9375em;
+$gap-em:         $pad-em;
+$gap-em--big:    $gap-em*2;
+$gap-em--baby:   $gap-em*1.5;
 
 /*------------------------------------*\
     ::Text Styling
@@ -56,9 +66,8 @@ $txt-color-2:       $color-1-dark;
 $txt-color-3:       $color-3-dark;
 
 //font families
-$fam-heading:       "Century Gothic", sans-serif;
-$fam-body:          palatino, serif;
-$fam-nav:           $fam-body;
+$fam--1:            'Vollkorn', serif;
+$fam--2:            'Signika', sans-serif;
 
 //internal/page anchor tags
 $a-color-link:      $color-2;

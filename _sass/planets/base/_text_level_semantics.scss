@@ -3,6 +3,9 @@
     ------------------------------------*
     ::Normalize.css v3.0.0 | MIT License | git.io/normalize
 \*------------------------------------*/
+body { // global text-level stying
+	font-family: $fam--1;
+}
 abbr[title] {
 	border-bottom: 1px dotted;
 }
@@ -13,10 +16,36 @@ strong {
 dfn {
 	font-style: italic;
 }
-h1 {
+%h0 {
+	color: $color-1-light;
+	font-weight: bold; // allows to extend non headings consistently
+	font-family: $fam--2;
+	&:first-child {
+		margin-top: -.2em; // aligns it right along the top
+	}
+}
+%h1 {
+	@extend %h0;
 	font-size: 2em;
 	margin: 0.67em 0;
 }
+%h2 {
+	@extend %h0;
+}
+%h3 {
+	@extend %h0;
+}
+%h4 {
+	@extend %h0;
+}
+%h5 {
+	@extend %h0;
+}
+%h6 {
+	@extend %h0;
+}
+// implementations
+h1 {@extend %h1;}h2 {@extend %h2;}h3 {@extend %h3;}h4 {@extend %h4;}h5 {@extend %h5;}h6 {@extend %h6;}
 mark {
 	background: #ff0;
 	color: #000;
@@ -36,4 +65,10 @@ sup {
 }
 sub {
 	bottom: -0.25em;
+}
+p {
+	margin-top: 0;
+	&:last-child {
+		margin-bottom: 0;
+	}
 }

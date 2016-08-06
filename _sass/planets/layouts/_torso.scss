@@ -1,6 +1,11 @@
 /*------------------------------------*\
     ::Torso
 \*------------------------------------*/
+ // /*DEBUG*/ $solarsystem: 1px;.main-torso {transform: scale(.9);}
+.main-torso {
+    @include clearfix;
+    position: relative;
+}
 .main-torso__col {
     float: left;
     width: 33.33%;
