@@ -11,5 +11,15 @@
             transition: fill 300ms;
         }
     }
+    &__slide {
+        h3 {
+            padding-top: $gap-em;
+            text-align: center;
+            margin-bottom: .5em;
+        }
+        ul {
+            margin: 0;
+        }
+    }
 }
 

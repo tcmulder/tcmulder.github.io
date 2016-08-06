@@ -1,13 +1,6 @@
 /*------------------------------------*\
     ::Icon Slider Layout
 \*------------------------------------*/
-
-.icon-slider input:nth-of-type(2):checked ~ .icon-slider__small-frame .icon-slider__big-frame {
-    background: blue;
-    transform: translateX(-50%);
-}
-
-
 .icon-slider {
     display: flex;
     flex-wrap: wrap;
@@ -38,10 +31,9 @@
         font-size: 0;
     }
     &__big-frame {
-        transition: transform 300ms;
+        transition: transform 1300ms;
     }
     &__slide {
-        /*TEMP*/box-shadow:0 0 0 1px rgba(blue,.5) inset;background-color:rgba(blue,.5);
         width: 100%;
         display: inline-block;
         font-size: 1rem;
