@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    ::Icon Slider View
+\*------------------------------------*/
+.icon-slider {
+    &__link:hover svg,
+    input:checked + label svg {
+        fill: $color-1-light;
+    }
+    &__link {
+        svg {
+            transition: fill 300ms;
+        }
+    }
+}
+
