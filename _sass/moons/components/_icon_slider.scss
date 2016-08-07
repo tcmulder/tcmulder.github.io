@@ -1,0 +1,167 @@
+/*------------------------------------*\
+    ::Icon Slider Layout
+\*------------------------------------*/
+$icon-slider-speed: 500ms;
+.icon-slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    input {
+        display: none;
+    }
+    &__link {
+        position: relative;
+        float: left;
+        width: 20%;
+        padding: .3em;
+        border: 3px solid $color-1-light;
+        cursor: pointer;
+        border-radius: 100%;
+        line-height: 0;
+        transition: border-color 300ms;
+        svg {
+            fill: $color-1-light;
+            transition: fill 300ms;
+        }
+    }
+    &__small-frame {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 0;
+    }
+    &__big-frame {
+        transition: transform $icon-slider-speed; // controls slide transitions
+    }
+    &__slide {
+        width: 100%;
+        display: inline-block;
+        font-size: 1rem;
+        vertical-align: top;
+        h3 {
+            white-space: normal;
+            padding-top: $gap-em;
+            text-align: center;
+            margin-bottom: .5em;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50%);
+            transition: $icon-slider-speed $icon-slider-speed*.5;
+        }
+    }
+    &__chart {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        padding-top: 75%;
+        white-space: normal;
+    }
+    &__stat {
+        display: inline-block;
+        width: 12%;
+        list-style: none;
+        float: left;
+        line-height: 1;
+        backface-visibility: hidden; // so many animations: prevent flashing
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            width: 1.3em;
+            margin-left: 8%;
+        }
+        &:before {
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-image: linear-gradient(
+                0deg,
+                $color-2,
+                $color-2 50%,
+                $color-1-light calc(50% + 1px),
+                $color-1-light
+            );
+            background-size: 3px 200%;
+            background-position: 0 -200%;
+            transition: background-position 0ms $icon-slider-speed;
+        }
+        &:after {
+            content: "";
+            bottom: 0;
+            width: 1em;
+            height: 1em;
+            background: $color-bg--dark;
+            border: 3px solid $color-2;
+            border-radius: 50%;
+            transform: translate(calc(-50% + 1.5px), calc(50% - .5em));
+            transition: bottom 0ms $icon-slider-speed;
+        }
+        span {
+            display: inline-block;
+            white-space: nowrap;
+            transform: translate(-6%, 100%) rotate(-85deg);
+            transform-origin: .25em -.25em;
+            font-size: .9em;
+            &:after {
+                content: "";
+                float: left;
+                margin-top: 100%;
+            }
+        }
+    }
+}
+
+// slider functionality
+.icon-slider {
+    // active nav
+    &__link:hover,
+    input:checked + label {
+        border-color: $color-2;
+        svg {
+            fill: $color-2;
+        }
+    }
+    input {
+        @for $i from 1 through 4 {
+            &:nth-of-type(#{$i}) {
+                &:checked ~ .icon-slider__small-frame {
+                    // slide transition
+                    .icon-slider__big-frame {
+                        bookmark: translate(-#{$i*100%});
+                        transform: translate(-#{$i*100%-100});
+                    }
+                    .icon-slider__slide--#{$i} {
+                        // title animation
+                        h3 {
+                            opacity: 1;
+                            transform: translateY(-12%);
+                        }
+                        // statistic animations
+                        @for $i from 1 through 9 {
+                            [data-per="#{$i}0"] {
+                                &:before {
+                                    background-position: 0 #{$i*10% - 200%};
+                                    transition: background-position $icon-slider-speed $icon-slider-speed;
+                                }
+                                &:after {
+                                    bottom: #{$i*10%};
+                                    transition: bottom $icon-slider-speed $icon-slider-speed;
+                                }
+                            }
+                        }
+                        [data-per="100"] { // come on: no one's _that_ good...
+                            &:before {
+                                background-position: 0 -105%;
+                                transition: background-position $icon-slider-speed $icon-slider-speed;
+                            }
+                            &:after {
+                                bottom: 92%;
+                                transition: bottom $icon-slider-speed $icon-slider-speed;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
