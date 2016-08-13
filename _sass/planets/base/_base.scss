@@ -14,7 +14,22 @@ img {
 }
 body {
 	margin: 0;
-    background-color: $color-bg--light;
+    background-image: linear-gradient(
+        90deg,
+        $color-bg--dark 0,
+        $color-bg--dark 33.33%,
+        $color-bg--light 33.33%,
+        $color-bg--light 100%
+    );
+    @include bp($solarsystem){
+        background-image: linear-gradient(
+            90deg,
+            $color-bg--dark 0,
+            $color-bg--dark 50%,
+            $color-bg--light 50%,
+            $color-bg--light 100%
+        );
+    }
 }
 *, *:before, *:after {
     box-sizing: border-box;

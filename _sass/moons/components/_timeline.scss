@@ -25,20 +25,37 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
         height: ($end-year - $start-year) * $timeline-gaps;
     }
 }
-
-.detail { // left col
-    background-color: $color-bg--dark;
+.timeline {
+    @include clearfix;
+    position: relative;
+    margin-top: 100vh;
+    float: left;
+    width: 100%;
+    &__col {
+        float: left;
+        width: 33.33%;
+        padding: 0 $gap;
+        @include bp($solarsystem){
+            width: 50%;
+        }
+        @include bp($planetary){
+            width: 100%;
+        }
+    }
 }
+// .detail { // left col
+
+// }
 .exp { // center col
     @include clearfix();
     position: relative;
     padding-right: 0;
     &__group {
-         // /*TEMP*/box-shadow:0 0 0 1px rgba(tomato,.5) inset;background-color:rgba(tomato,.5);
         position: absolute;
         left: 0;
         right: $timeline-width;
         padding: 0 $gap;
+         // /* DEBUG */box-shadow:0 0 0 1px rgba(tomato,.5) inset;background-color:rgba(tomato,.5);
         &--title {
             &:before,
             &:after {
@@ -178,7 +195,4 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
             transform: translate(-50%, -50%);
         }
     }
-}
-.achieve__group--goodcookie {
-    opacity: .5;
 }
