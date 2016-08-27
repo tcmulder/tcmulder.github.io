@@ -50,6 +50,9 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
     @include clearfix();
     position: relative;
     padding-right: 0;
+    h1, h2, h3, h5, h6 {
+        color: $color-1-dark;
+    }
     &__group {
         position: absolute;
         left: 0;
@@ -66,19 +69,10 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
             @include year(2012, 2016);
         }
         &--du {
-            @include year(2011, 2012);
-        }
-        &--tcmulder {
-            @include year(2010, 2011);
+            @include year(2010, 2012);
         }
         &--usmc {
             @include year(2006, 2010);
-        }
-        &--ptc {
-            @include year(2002, 2006);
-        }
-        &--t-creative {
-            @include year(2002, 2006);
         }
         &--tech {
             @include year(2002, 2006);
@@ -121,7 +115,7 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
         text-align: center;
         width: 100%;
         height: $timeline-gaps;
-        list-style: none;
+        padding-left: 0;
         span {
             font-size: .75em;
         }
@@ -129,9 +123,12 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
         &:after {
             content: "";
             position: absolute;
-            border-top: $timeline-border-width solid $color-2;
+            border: 0 solid $color-2;
+            border-width: $timeline-border-width 0 0;
             width: .4em;
+            height: 0;
             top: .7em;
+            border-radius: 0;
         }
         &:before {
             left: 0;

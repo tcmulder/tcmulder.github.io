@@ -38,6 +38,9 @@ dfn {
 }
 %h4 {
 	@extend %h0;
+	color: $color-2;
+	font-size: 1em;
+	margin: 1em 0 .1em;
 }
 %h5 {
 	@extend %h0;

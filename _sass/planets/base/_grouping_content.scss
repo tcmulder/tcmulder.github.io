@@ -21,3 +21,24 @@ samp {
 	font-family: monospace, monospace;
 	font-size: 1em;
 }
+ul {
+    margin: 0;
+    padding-left: 0;
+    li {
+        position: relative;
+        padding-left: 1em;
+        margin-bottom: .7em;
+        line-height: 1.2;
+        list-style: none;
+        &:before {
+            content: "";
+            position: absolute;
+            top: .4em;
+            left: 0;
+            width: .5em;
+            height: .5em;
+            border: .15em solid $color-2;
+            border-radius: 50%;
+        }
+    }
+}
