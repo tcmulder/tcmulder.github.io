@@ -176,7 +176,7 @@ gulp.task('watch', function(gulpCallback) {
 
     // start jekyll's server
     var shell = require('gulp-shell');
-    gulp.src('').pipe(shell('jekyll serve --no-watch'));
+    gulp.src('').pipe(shell('jekyll serve --detach --no-watch'));
 
     browserSync.init({
         proxy: url,
@@ -222,7 +222,7 @@ gulp.task('watch', function(gulpCallback) {
             debounceDelay: 500 + intervalIncrease, // default 500
             mode: 'poll'
         },['css']);
-console.log(config.sass.dest+'_site/css/style.css');
+
         gulp.watch(config.sass.dest+'/_site/css/style.css', function() {
         gulp.src(config.sass.dest+'/_site/css/style.css')
             .pipe(browserSync.stream());
@@ -238,3 +238,15 @@ console.log(config.sass.dest+'_site/css/style.css');
     ::Task Combinations
 \*------------------------------------*/
 gulp.task('default', ['watch']);
+
+/*------------------------------------*\
+    ::Exit
+\*------------------------------------*/
+function exitHandler(options, err) {
+    console.log('Attempting to close Jekyll server');
+    var shell = require('gulp-shell');
+    gulp.src('').pipe(shell('ps aux | grep jekyll | grep -v grep | awk "{print $2}" | xargs kill -9'));
+    process.exit();
+}
+process.on('exit', exitHandler);
+process.on('SIGINT', exitHandler); //catches ctrl+c event

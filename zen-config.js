@@ -28,7 +28,7 @@ var config = {
         // name of script to process (must not contain a "-" character)
         scripts: {
             // destination of files to process - can use globbing
-            src: './js/scripts-src/**/*.js',
+            src: './_js/scripts-src/**/*.js',
             // destination of output file - expects path and filename
             dest: './js/scripts.min.js'
         }
