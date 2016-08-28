@@ -47,7 +47,7 @@ var config = {
     },
     watch: {
         // files to watch - can accept a string or an array of strings
-        src: './**/*.{md,html}'
+        src: '._site/**/*.{md,html}'
     }//,
     // db: {
     //     // local database configuration

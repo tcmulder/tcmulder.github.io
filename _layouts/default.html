@@ -1,9 +1,14 @@
+---
+default_css: styles
+default_js: scripts.min
+---
 <!DOCTYPE html>
 <html>
     {% include head.html %}
     <body>
         {% include header.html %}
         {{ content }}
-		{% include footer.html %}
-  </body>
+        {% include footer.html %}
+        {% include foot.html %}
+    </body>
 </html>
