@@ -56,7 +56,6 @@ for(var key in config.js) {
    gulp.task('js-'+key, function() {
         var stops = require('pipe-error-stop');
         var uglify = require('gulp-uglifyjs');
-        var browserSync = require('browser-sync');
 
         var key = this.seq[0].split('-')[1];
         var destParts = config.js[key].dest.split('/');
@@ -73,8 +72,7 @@ for(var key in config.js) {
                     console.log('js task failure');
                 }
             }))
-            .pipe(gulp.dest(destPath))
-            .pipe(browserSync.reload({stream:true}));
+            .pipe(gulp.dest(destPath));
    });
 }
 
@@ -158,7 +156,7 @@ gulp.task('watch', function(gulpCallback) {
                 interval: 100 + intervalIncrease, // default 100
                 debounceDelay: 500 + intervalIncrease, // default 500
                 mode: 'poll'
-            }, ['js-'+key]);
+            }, ['js-'+key, 'jekyll-rebuild']);
         }
 
         gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '*.md', '_posts/*'], ['jekyll-rebuild']);
