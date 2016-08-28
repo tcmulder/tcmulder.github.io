@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,KAAM,CACF,eAAe,CAAE,OAAO,CACxB,mBAAmB,CAAE,MAAM,CAC3B,iBAAiB,CAAE,SAAS,CAC5B,qBAAqB,CAAE,KAAK,CAEhC,QAAS,CACL,gBAAgB,CAAE,OAAO,CACzB,gBAAgB,CAAE,ykJAAykJ,CAE/lJ,QAAS,CACL,gBAAgB,CAAE,OAAO,CACzB,gBAAgB,CAAE,ykJAAykJ,CAE/lJ,QAAS,CACL,gBAAgB,CAAE,OAAO,CACzB,gBAAgB,CAAE,ykJAAykJ",
-"sources": ["_sass/signature-sprite.scss"],
-"names": [],
-"file": "signature-sprite.css"
-}

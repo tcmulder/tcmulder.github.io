@@ -31,7 +31,7 @@ gulp.task('css', function() {
         .pipe(stops(compass({
             sourcemap: true,
             quiet: true,
-            css: config.sass.dest,
+            css: config.sass.dest+'_site/css/',
             sass: config.sass.src,
             image: config.sass.src+'../images',
             style: 'compressed',
@@ -46,8 +46,9 @@ gulp.task('css', function() {
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(prefix('last 2 version', 'ie 10', 'ie 9'))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('_site/css'))
-        .pipe(gulp.dest(config.sass.dest+'css/'));
+        .pipe(gulp.dest(config.sass.dest+'_site/css'))
+        .pipe(gulp.dest(config.sass.dest+'css'))
+        ;
 });
 
 //js
@@ -117,45 +118,6 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
     browserSync.reload();
 });
 
-//db
-// gulp.task('db-exp', function () {
-//     var shell = require('gulp-shell');
-//     return gulp.src('')
-//         .pipe(shell([
-//             'echo "database export called"',
-//             'test -d '+config.db.local.dumpDir+' || mkdir '+config.db.local.dumpDir+'',
-//             'mysqldump -h'+config.db.local.host+' -u'+config.db.local.user+' -p\''+config.db.local.pass+'\' '+config.db.local.name+' > '+config.db.local.dumpDir+config.db.local.dumpFile,
-//             'ls -lah '+config.db.local.dumpDir+config.db.local.dumpFile+' | awk \'{ print "export ran: "$9" is "$5}\''
-//         ].join('&&')));
-// });
-// gulp.task('db-drop-and-import', function () {
-//     var shell = require('gulp-shell');
-//     return gulp.src('')
-//         .pipe(shell([
-//             'echo "database import called"',
-//             'mysqldump -h'+config.db.local.host+' -u'+config.db.local.user+' -p\''+config.db.local.pass+'\' --no-data '+config.db.local.name+' | grep ^DROP | mysql -h'+config.db.local.host+' -u'+config.db.local.user+' -p\''+config.db.local.pass+'\' '+config.db.local.name+'',
-//             'mysql -h'+config.db.local.host+' -u'+config.db.local.user+' -p'+config.db.local.pass+' '+config.db.local.name+' < '+config.db.local.dumpDir+config.db.local.dumpFile,
-//             'echo "import ran:"',
-//             'mysql -h'+config.db.local.host+' -u'+config.db.local.user+' -p'+config.db.local.pass+' '+config.db.local.name+' -e \'SHOW TABLES\''
-//         ].join('&&')));
-// });
-// gulp.task('db-far', ['db-drop-and-import'], function () {
-//     var shell = require('gulp-shell');
-//     var farCommand = '/Applications/MAMP/htdocs/_far/srdb.cli.php ';
-//         farCommand += '-h\''+config.db.local.host+'\' ';
-//         farCommand += '-u\''+config.db.local.user+'\' ';
-//         farCommand += '-p\''+config.db.local.pass+'\' ';
-//         farCommand += '-n\''+config.db.local.name+'\' ';
-//         farCommand += '-s"'+'`mysql -h'+config.db.local.host+' -u'+config.db.local.user+' -p'+config.db.local.pass+' '+config.db.local.name+' -e "SELECT option_value FROM '+config.db.local.prefix+'options WHERE option_name=\'siteurl\'" | grep ^http`'+'" ';
-//         farCommand += '-r\''+config.url.root+'\'';
-//     return gulp.src('')
-//         .pipe(shell([
-//             'echo "database find and replaced called"',
-//             farCommand
-//         ].join('&&')));
-// });
-// gulp.task('db-imp', ['db-far']);
-
 /*------------------------------------*\
     ::Watch
 \*------------------------------------*/
@@ -181,11 +143,7 @@ gulp.task('watch', function(gulpCallback) {
     browserSync.init({
         proxy: url,
         open: false,
-        https: false//,
-        // snippetOptions: {
-        //     whitelist: ['/sites/'+config.site.client+'/'+config.site.proj+'/wp-admin/admin-ajax.php'], // whitelist checked first
-        //     blacklist: ['/sites/'+config.site.client+'/'+config.site.proj+'/wp-admin/**']
-        // }
+        https: false
     }, function callback() {
 
         // make watch slower for vagrant performance
@@ -203,17 +161,6 @@ gulp.task('watch', function(gulpCallback) {
             }, ['js-'+key]);
         }
 
-        // general file changes
-        // gulp.watch(config.watch.src, {
-        //     interval: 100 + intervalIncrease, // default 100
-        //     debounceDelay: 500 + intervalIncrease, // default 500
-        //     mode: 'poll'
-        // },['html']);
-        // .on(
-        //     'change',
-        //     browserSync.reload
-        // );
-
         gulp.watch(['index.html', '_includes/*.html', '_layouts/*.html', '*.md', '_posts/*'], ['jekyll-rebuild']);
 
         //css watch
@@ -223,9 +170,9 @@ gulp.task('watch', function(gulpCallback) {
             mode: 'poll'
         },['css']);
 
-        gulp.watch(config.sass.dest+'/_site/css/style.css', function() {
-        gulp.src(config.sass.dest+'/_site/css/style.css')
-            .pipe(browserSync.stream());
+        gulp.watch(config.sass.dest+'_site/css/*.css', function() {
+            gulp.src(config.sass.dest+'_site/css/*.css')
+                .pipe(browserSync.stream());
         });
 
         gulpCallback();
@@ -243,10 +190,10 @@ gulp.task('default', ['watch']);
     ::Exit
 \*------------------------------------*/
 function exitHandler(options, err) {
-    console.log('Attempting to close Jekyll server');
     var shell = require('gulp-shell');
-    gulp.src('').pipe(shell('ps aux | grep jekyll | grep -v grep | awk "{print $2}" | xargs kill -9'));
+    gulp.src('').pipe(shell('pkill -f jekyll'));
     process.exit();
 }
 process.on('exit', exitHandler);
 process.on('SIGINT', exitHandler); //catches ctrl+c event
+process.on('uncaughtException', exitHandler); //catches uncaught exceptions
