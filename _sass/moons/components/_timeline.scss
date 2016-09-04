@@ -31,7 +31,34 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
     margin-top: 100vh;
     float: left;
     width: 100%;
+    &:before,
+    &:after {
+        content: "TEST";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+    }
+    &:before {
+        left: 0;
+        background-image: linear-gradient(
+            180deg,
+            transparent,
+            rgba($color-bg--dark,.85) 5em
+        );
+    }
+    &:after {
+        right: 0;
+        background-image: linear-gradient(
+            180deg,
+            transparent,
+            rgba($color-bg--light,.94) 5em
+        );
+    }
     &__col {
+        position: relative;
+        z-index: 10;
         float: left;
         width: 33.33%;
         padding: 0 $gap;

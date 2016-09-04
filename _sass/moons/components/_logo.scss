@@ -1,0 +1,64 @@
+/*------------------------------------*\
+    ::Logo
+    -----------------------------------
+    Note: colors and special styling
+    spread out within implementation
+    files for better organization.
+\*------------------------------------*/
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &__first,
+    &__second {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+    &__first {
+        z-index: 10;
+        left: 0;
+        width: 33.33%;
+        @include bp($solarsystem){
+            width: 50%;
+        }
+    }
+    &__second {
+        z-index: -1;
+        right: 0;
+        width: 66.66%;
+        @include bp($solarsystem){
+            width: 50%;
+        }
+        span {
+            left: -33.33vw;
+            @include bp($solarsystem){
+                left: -50vw;
+            }
+        }
+    }
+    span { // FF rotates svg's incorrectly
+        display: block;
+        position: relative;
+        top: 0;
+        transform: rotate(20deg);
+        height: 100vh;
+        width: 100vw;
+        @include bp($galaxy){
+            transform: rotate(30deg);
+        }
+        @include bp($solarsystem){
+            transform: rotate(45deg);
+        }
+        @include bp($planetary){
+            transform: rotate(60deg) scale(1.5);
+        }
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

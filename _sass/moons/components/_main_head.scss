@@ -5,7 +5,19 @@
     position: fixed;
     height: 100vh;
     width: 100%;
-    &:before {
-        @extend %bg-logo;
+    .logo {
+        &__first {
+            background-color: $color-bg--dark;
+            svg {
+                // fill: $color-1;
+                fill: $color-bg--light;
+            }
+        }
+        &__second {
+            svg {
+                // fill: darken($color-2-lightest,3%);
+                fill: $color-bg--dark;
+            }
+        }
     }
 }
