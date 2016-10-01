@@ -14,7 +14,7 @@ $icon-slider-speed: 500ms;
         float: left;
         width: 20%;
         padding: .3em;
-        border: 3px solid $color-1-light;
+        border: .1875em solid $color-1-light;
         cursor: pointer;
         border-radius: 100%;
         line-height: 0;
@@ -66,19 +66,18 @@ $icon-slider-speed: 500ms;
         line-height: 1;
         backface-visibility: hidden; // so many animations: prevent flashing
         &:before,
-        &:after {
+        &:after { // bar/circle
             content: "";
             position: absolute;
             width: 1.3em;
-            margin-left: 8%;
         }
-        &:before {
+        &:before { // bar
             top: 0;
             bottom: 0;
             left: auto;
             width: .3em;
             height: auto;
-            margin-left: 1.55em;
+            margin-left: 1.4em;
             background-image: linear-gradient(
                 0deg,
                 $color-2,
@@ -92,15 +91,14 @@ $icon-slider-speed: 500ms;
             border: 0;
             transition: background-position 0ms $icon-slider-speed;
         }
-        &:after {
-            content: "";
+        &:after { // circle
             bottom: 0;
             width: 1em;
             height: 1em;
             background: $color-bg--dark;
             border: .2em solid $color-2;
             border-radius: 50%;
-            transform: translate(calc(-50% + 1.5px), calc(50% - 0.3em));
+            transform: translate(105%, 30%);
             transition: bottom 0ms $icon-slider-speed;
         }
         span {

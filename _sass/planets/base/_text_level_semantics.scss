@@ -21,14 +21,11 @@ dfn {
 	color: $color-1-light;
 	font-weight: bold; // allows to extend non headings consistently
 	font-family: $fam--2;
-	&:first-child {
-		margin-top: -.2em; // aligns it right along the top
-	}
+	margin: .67em 0 .4em;
 }
 %h1 {
 	@extend %h0;
 	font-size: 2em;
-	margin: 0.67em 0;
 }
 %h2 {
 	@extend %h0;
@@ -39,8 +36,9 @@ dfn {
 %h4 {
 	@extend %h0;
 	color: $color-2;
-	font-size: 1em;
-	margin: 1em 0 .1em;
+	font-family: $fam--1;
+	font-weight: normal;
+	font-style: italic;
 }
 %h5 {
 	@extend %h0;
