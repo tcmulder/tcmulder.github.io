@@ -28,7 +28,6 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
 .timeline {
     @include clearfix;
     position: relative;
-    margin-top: 100vh;
     float: left;
     width: 100%;
     &:before,
@@ -38,30 +37,6 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
         position: absolute;
         top: 0;
         bottom: 0;
-    }
-    &:before {
-        left: 0;
-        background-image: linear-gradient(
-            180deg,
-            transparent,
-            rgba($color-bg--dark,.85) 5em
-        );
-        width: 33.33%;
-        @include bp($solarsystem){
-            width: 50%;
-        }
-    }
-    &:after {
-        right: 0;
-        background-image: linear-gradient(
-            180deg,
-            transparent,
-            rgba($color-bg--light,.94) 5em
-        );
-        width: 66.66%;
-        @include bp($solarsystem){
-            width: 50%;
-        }
     }
     &__col {
         position: relative;
@@ -77,11 +52,25 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
         }
     }
 }
-// .detail { // left col
-//      uncomment if it's needed :-)
-// }
+.detail,
 .exp,
 .achieve {
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-duration: 1000ms;
+    animation-delay: 1000ms;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+}
+.detail { // left col
+     background-color: rgba($color-1-dark,.8);
+     position: fixed;
+     top: 0;
+     left: 0;
+}
+.exp,
+.achieve {
+    background-color: rgba(#fff, .8);
     h1, h2, h3, h5, h6 {
         color: $color-1-dark;
     }
@@ -93,9 +82,11 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
 .exp { // center col
     @include clearfix();
     position: relative;
+    left: 33.33%;
     padding-right: 0;
     font-size: 1.2vw;
     @include bp($solarsystem){
+        left: 50%;
         font-size: 1rem;
     }
     &__group {
