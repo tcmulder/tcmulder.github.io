@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    ::Timeline Detail (left)
+\*------------------------------------*/
+.detail {
+     @extend %col;
+     @extend %dark-col;
+     @extend %animation--fade-in;
+     position: fixed;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     overflow-y: auto;
+}

@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    ::Animations
+\*------------------------------------*/
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+%animation--fade-in {
+    animation-name: fade-in;
+    animation-fill-mode: forwards;
+    animation-duration: 1000ms;
+    animation-delay: 1000ms;
+    animation-timing-function: ease-in-out;
+    opacity: 0;
+}

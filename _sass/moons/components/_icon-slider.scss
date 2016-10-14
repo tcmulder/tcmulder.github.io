@@ -5,7 +5,7 @@ $icon-slider-speed: 500ms;
 .icon-slider {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     input {
         display: none;
     }
@@ -13,6 +13,7 @@ $icon-slider-speed: 500ms;
         position: relative;
         float: left;
         width: 20%;
+        max-width: 3em;
         padding: .3em;
         border: .1875em solid $color-1-light;
         cursor: pointer;

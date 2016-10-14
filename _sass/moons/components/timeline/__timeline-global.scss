@@ -1,0 +1,95 @@
+/*------------------------------------*\
+    ::Timeline Global
+\*------------------------------------*/
+
+/*------------------------------------*\
+    ::Common Vars
+\*------------------------------------*/
+$timeline-width:            3em; // timeline bar's width
+$timeline-gaps:             8em; // each year period's height
+$timeline-border-width:     .1875em; // all timeline borders
+$year-word-height:          .85em; // the height of the "20xx" word for centering
+
+/*------------------------------------*\
+    ::Year Position Mixin
+\*------------------------------------*/
+// Usage:
+// .el {
+//     @include year(2010, 2015); // spans 2010 to 2015
+//     @include year(false, 2015); // starts at 2015 with auto height
+//     @include year(false, 2015.5); // starts at Jul 2, 2015 with auto height
+// }
+@mixin year($start-year, $end-year, $total-years: 2016) {
+    top: ($total-years - $end-year + 1) * $timeline-gaps + $year-word-height;
+    @if $start-year != false {
+        height: ($end-year - $start-year) * $timeline-gaps;
+    }
+}
+
+/*------------------------------------*\
+    ::Reusable Global Extends
+\*------------------------------------*/
+%col {
+    position: relative;
+    z-index: 10;
+    float: left;
+    width: 33.33%;
+    padding: 0 $gap;
+    @include bp($solarsystem){
+        width: 50%;
+    }
+    @include bp($planetary){
+        width: 100%;
+    }
+}
+%dark-col {
+    z-index: 10;
+}
+%light-col {
+    z-index: 10;
+    h1, h2, h3, h5, h6 {
+        color: $color-1-dark;
+    }
+    h3 + h4 {
+        margin-top: -.4em;
+        margin-bottom: .4em;
+    }
+}
+
+
+/*------------------------------------*\
+    ::Wrapper/Global Layout/Styling
+\*------------------------------------*/
+.timeline {
+    @include clearfix;
+    position: relative;
+    width: 100%;
+    float: left;
+    &:before,
+    &:after {
+       content: "";
+       display: block;
+       position: fixed;
+       z-index: 0;
+       top: 0;
+       bottom: 0;
+    }
+    &:before { // dark overlay
+        @extend %animation--fade-in;
+       left: 0;
+       right: 66.66%;
+       background-color: rgba($color-1-dark,.85);
+       @include bp($solarsystem){
+            right: 50%;
+       }
+    }
+    &:after { // light overlay
+        @extend %animation--fade-in;
+        left: 33.33%;
+        right: 0;
+        background-color: rgba(#fff, .92);
+        @include bp($solarsystem){
+            left: 50%;
+        }
+    }
+}

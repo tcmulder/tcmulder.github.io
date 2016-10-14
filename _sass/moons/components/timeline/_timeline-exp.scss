@@ -1,0 +1,100 @@
+/*------------------------------------*\
+    ::Timeline Experience (center/right)
+\*------------------------------------*/
+.exp {
+    @extend %col;
+    @extend %light-col;
+    @extend %animation--fade-in;
+    @include clearfix();
+    position: relative;
+    left: 33.33%;
+    padding-right: 0;
+    font-size: 1.2vw;
+    @include bp($solarsystem){
+        left: 50%;
+        font-size: 1rem;
+    }
+    &__group {
+        position: absolute;
+        left: 0;
+        right: $timeline-width;
+        padding: 0 $gap;
+        &--title {
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
+        &--zenman {
+            @include year(2012, 2016);
+        }
+        &--du {
+            @include year(2010, 2012);
+        }
+        &--usmc {
+            @include year(2006, 2010);
+        }
+        &--tech {
+            @include year(2002, 2006);
+        }
+        &:before,
+        &:after { // circle/line for exp
+            content: "";
+            position: absolute;
+            border: $timeline-border-width solid $color-2;
+            z-index: 10;
+        }
+        &:before { // line for exp
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-width: $timeline-border-width 0 0;
+        }
+        &:after { // circle for exp
+            right: -$timeline-border-width*.5;
+            bottom: $timeline-border-width*.4;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: $color-bg--light;
+            transform: translate(50%, 50%);
+        }
+    }
+    &__timeline {
+        float: right;
+        width: $timeline-width;
+        border: 0 solid $color-2;
+        border-width: 0 $timeline-border-width;
+        margin: 0;
+        padding: 0;
+    }
+    &__year {
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: $timeline-gaps;
+        margin: 0;
+        padding-left: 0;
+        span {
+            font-size: .75em;
+        }
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            border: 0 solid $color-2;
+            border-width: $timeline-border-width 0 0;
+            width: .4em;
+            height: 0;
+            top: .7em;
+            border-radius: 0;
+        }
+        &:before {
+            left: 0;
+        }
+        &:after {
+            right: 0;
+        }
+    }
+}
