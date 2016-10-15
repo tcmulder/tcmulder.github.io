@@ -57,6 +57,7 @@ $bp-tab-and-big-phone: "only screen and (min-width: #{$tab--min}) and (max-width
             margin-bottom: $gap;
             padding: 0 $gap;
             transform: none;
+            left: 0;
         }
         &:before,
         &:after { // line/circle for achieve

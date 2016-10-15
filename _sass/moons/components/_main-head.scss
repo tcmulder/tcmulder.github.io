@@ -4,23 +4,6 @@
 .main-head {
     position: fixed;
     z-index: -1;
-    height: 100vh;
-    width: 100vw;
-display: none;
-    .logo {
-        &__first {
-            background-color: $color-bg--dark;
-            svg {
-                // fill: $color-1;
-                fill: $color-bg--light;
-            }
-        }
-        &__second {
-            background-color: #fff;
-            svg {
-                // fill: darken($color-2-lightest,3%);
-                fill: $color-bg--dark;
-            }
-        }
-    }
+    height: 100%;
+    width: 100%;
 }

@@ -11,35 +11,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    &__first,
-    &__second {
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-    }
-    &__first {
-        z-index: 10;
-        left: 0;
-        width: 33.33%;
-        @include bp($tab--max){
-            width: 50%;
-        }
-    }
-    &__second {
-        z-index: -1;
-        right: 0;
-        width: 66.66%;
-        @include bp($tab--max){
-            width: 50%;
-        }
-        span {
-            left: -33.33vw;
-            @include bp($tab--max){
-                left: -50vw;
-            }
-        }
-    }
     span { // FF rotates svg's incorrectly
         display: block;
         position: relative;
@@ -54,11 +25,83 @@
             transform: rotate(45deg);
         }
         @include bp($phone--max){
-            transform: rotate(60deg) scale(1.5);
+            transform: scale(.4);
         }
         svg {
             height: 100%;
             width: 100%;
+        }
+    }
+    &__first,
+    &__second {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+    &__first {
+        left: 0;
+        width: calc(50% - #{$row-width/6});
+        background-color: $color-bg--dark;
+        @include bp($desk--max){
+            width: 33.33%;
+        }
+        @include bp($tab--max){
+            width: 50%;
+        }
+        @include bp($phone--max){
+            width: 100%;
+            height: 50%;
+            transform: rotate(45deg) scale(3);
+            transform-origin: 50% 100%;
+            background-color: #fff;
+        }
+        svg {
+            @include bp($min: $tab--min){
+                fill: #fff; // starting color
+                @include animation--fade-fill($name: logo-first, $from: #fff, $to: $color-1);
+            }
+            @include bp($phone--max){
+                fill: darken($color-bg--dark, 3%);
+                @include animation--fade-fill($name: logo-first-small, $from: darken($color-bg--dark, 3%), $to: lighten($color-1-light,40%));
+            }
+        }
+    }
+    &__second {
+        z-index: -1;
+        right: 0;
+        width: 66.66%;
+        background-color: #fff;
+        @include bp($tab--max){
+            width: 50%;
+        }
+        @include bp($phone--max){
+            top: 50%;
+            width: 100%;
+            height: 50%;
+            transform: rotate(45deg) scale(3);
+            transform-origin: 50% 0;
+            background-color: lighten($color-1-light,40%);
+        }
+        svg {
+            @include bp($min: $tab--min){
+                fill: $color-bg--dark; // starting color
+                @include animation--fade-fill($name: logo-second, $from: $color-bg--dark, $to: darken($color-2-lightest,3%));
+            }
+            @include bp($phone--max){
+                fill: lighten($color-bg--dark, 3%);
+                @include animation--fade-fill($name: logo-second-small, $from: lighten($color-bg--dark, 3%), $to: #fff);
+            }
+        }
+        span {
+            left: -33.33vw;
+            @include bp($tab--max){
+                left: -50vw;
+            }
+            @include bp($phone--max){
+                left: 0;
+                top: -50vh;
+            }
         }
     }
 }
