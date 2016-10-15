@@ -39,9 +39,25 @@ $color-bg--light:   $color-2-lightest;
 /*------------------------------------*\
     ::Breakpoints
 \*------------------------------------*/
-$galaxy:        1140px;
+$phone--min: 320px;
+$phone--max: 600px;
+$phone--mid: round($phone--min + ($phone--max - $phone--min)/2);
+
+$tab--min: $phone--max + 1;
+$tab--max: 960px;
+$tab--mid: round($tab--min + ($tab--max - $tab--min)/2);
+
+$desk--min: $tab--max + 1;
+$desk--max: $row-width;
+$desk--mid: round($desk--min + ($desk--max - $desk--min)/2);
+
+body {
+    foo: $phone--mid;
+}
+
+$galaxy:        $row-width;
 $solarsystem:   960px;
-$planetary:     500px;
+$planetary:     600px;
 
 /*------------------------------------*\
     ::Layout

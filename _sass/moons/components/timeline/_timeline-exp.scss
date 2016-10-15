@@ -3,22 +3,21 @@
 \*------------------------------------*/
 .exp {
     @extend %col;
-    @extend %light-col;
+    @extend %col--light;
     @extend %animation--fade-in;
-    @include clearfix();
     position: relative;
-    left: 33.33%;
     padding-right: 0;
-    font-size: 1.2vw;
-    @include bp($solarsystem){
-        left: 50%;
-        font-size: 1rem;
-    }
     &__group {
         position: absolute;
         left: 0;
         right: $timeline-width;
         padding: 0 $gap;
+        &:last-of-type {
+            &:after,
+            &:before { // get rid of line for last item
+                display: none;
+            }
+        }
         &--title {
             &:before,
             &:after {
@@ -69,32 +68,8 @@
         padding: 0;
     }
     &__year {
-        position: relative;
-        display: block;
-        text-align: center;
-        width: 100%;
-        height: $timeline-gaps;
+        @extend %year;
         margin: 0;
         padding-left: 0;
-        span {
-            font-size: .75em;
-        }
-        &:before,
-        &:after {
-            content: "";
-            position: absolute;
-            border: 0 solid $color-2;
-            border-width: $timeline-border-width 0 0;
-            width: .4em;
-            height: 0;
-            top: .7em;
-            border-radius: 0;
-        }
-        &:before {
-            left: 0;
-        }
-        &:after {
-            right: 0;
-        }
     }
 }

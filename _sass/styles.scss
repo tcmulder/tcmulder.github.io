@@ -31,7 +31,7 @@
         this is the framework we use, mainly
         as our grid system.
     \*------------------------------------*/
-    $row-width: 1140px;           //sets the width of rows
+    $row-width: 1440px; //sets the width of rows (prod:1440px/dev:1024px)
     $include-html-classes: false; //eliminates basic styling (_global.scss)
     @import "stars/foundation/scss/foundation/components/grid";
 

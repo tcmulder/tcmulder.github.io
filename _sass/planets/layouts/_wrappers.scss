@@ -3,4 +3,5 @@
 \*------------------------------------*/
 [class*="__inner"] {
     @include grid-row;
+    /*TEMP*/box-shadow:0 0 0 1px rgba(mediumaquamarine,.8) inset;background-color:rgba(mediumaquamarine,0);
 }

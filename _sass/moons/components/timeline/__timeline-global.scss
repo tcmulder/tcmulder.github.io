@@ -20,32 +20,63 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
 //     @include year(false, 2015.5); // starts at Jul 2, 2015 with auto height
 // }
 @mixin year($start-year, $end-year, $total-years: 2016) {
-    top: ($total-years - $end-year + 1) * $timeline-gaps + $year-word-height;
+    $year-top: ($total-years - $end-year + 1) * $timeline-gaps + $year-word-height;
+    $year-height: if($start-year, ($end-year - $start-year) * $timeline-gaps, false);
+
+    top: $year-top;
     @if $start-year != false {
-        height: ($end-year - $start-year) * $timeline-gaps;
+        height: $year-height;
     }
 }
 
 /*------------------------------------*\
     ::Reusable Global Extends
 \*------------------------------------*/
+%year {
+    text-align: center;
+    height: $timeline-gaps;
+    span {
+        font-size: .75em;
+    }
+    &:last-child {
+        height: 1.5em;
+    }
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        border: 0 solid $color-2;
+        border-width: $timeline-border-width 0 0;
+        width: .4em;
+        height: 0;
+        top: .7em;
+        border-radius: 0;
+    }
+    &:before {
+        left: 0;
+    }
+    &:after {
+        right: 0;
+    }
+}
 %col {
     position: relative;
     z-index: 10;
-    float: left;
     width: 33.33%;
     padding: 0 $gap;
     @include bp($solarsystem){
         width: 50%;
+        font-size: calc(.5rem + .7vw); // milder vw font resizing
     }
     @include bp($planetary){
-        width: 100%;
+        font-size: .9em;
+        width: 50%;
     }
 }
-%dark-col {
+%col--dark {
     z-index: 10;
 }
-%light-col {
+%col--light {
     z-index: 10;
     h1, h2, h3, h5, h6 {
         color: $color-1-dark;
@@ -65,6 +96,12 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
     position: relative;
     width: 100%;
     float: left;
+    &__inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+    }
     &:before,
     &:after {
        content: "";
@@ -75,15 +112,17 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
        bottom: 0;
     }
     &:before { // dark overlay
+display: none;
         @extend %animation--fade-in;
-       left: 0;
-       right: 66.66%;
-       background-color: rgba($color-1-dark,.85);
-       @include bp($solarsystem){
+        left: 0;
+        right: 66.66%;
+        background-color: rgba($color-1-dark,.85);
+        @include bp($solarsystem){
             right: 50%;
-       }
+        }
     }
     &:after { // light overlay
+display: none;
         @extend %animation--fade-in;
         left: 33.33%;
         right: 0;

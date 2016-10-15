@@ -2,12 +2,30 @@
     ::Timeline Detail (left)
 \*------------------------------------*/
 .detail {
-     @extend %col;
-     @extend %dark-col;
-     @extend %animation--fade-in;
-     position: fixed;
-     top: 0;
-     left: 0;
-     bottom: 0;
-     overflow-y: auto;
+    @extend %col;
+    @extend %col--dark;
+    @extend %animation--fade-in;
+    padding: 0;
+    @include bp($planetary){
+        width: 100%;
+    }
+    &__inner--fixed {
+        overflow-x: hidden;
+        overfly-y: auto;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: $row-width/3; // defined in styles.scss
+        padding: 0 $gap;
+        @include bp($min: $solarsystem + 1, $max: $row-width){
+            width: 33.33%;
+        }
+        @include bp($solarsystem){
+            width: 50%;
+        }
+        @include bp($planetary){
+            position: relative;
+            width: 100%;
+        }
+    }
 }

@@ -80,21 +80,25 @@
 // @include bp($min: 600px){ body { background:#fff } }
 // @include bp($min: 600px, $max: 600px){ body { background:#000 } }
 // @include bp($planetary){ body { background:#fff } }
+// @include bp($custom:print and (color)){ body { background:#fff } }
 
-@mixin bp($media: false, $min: false, $max: false) {
-    @if $media {
-        @media only screen and (max-width: $media) { @content; }
+@mixin bp($media: false, $min: false, $max: false, $custom: false) {
+    @if $custom {
+        @media #{$custom} { @content; }
+    } @else {
+        @if $media {
+            @media only screen and (max-width: $media) { @content; }
+        }
+        @else if $min and $max {
+            @media only screen and (min-width: $min) and (max-width: $max) { @content; }
+        }
+        @else if $min {
+            @media only screen and (min-width: $min) { @content; }
+        }
+        @else if $max {
+            @media only screen and (max-width: $max) { @content; }
+        }
     }
-    @else if $min and $max {
-        @media only screen and (min-width: $min) and (max-width: $max) { @content; }
-    }
-    @else if $min {
-        @media only screen and (min-width: $min) { @content; }
-    }
-    @else if $max {
-        @media only screen and (max-width: $max) { @content; }
-    }
-
 }
 
 /*------------------------------------*\

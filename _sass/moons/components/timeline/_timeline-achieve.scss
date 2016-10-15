@@ -1,21 +1,15 @@
 /*------------------------------------*\
     ::Timeline Achieve (right/bottom)
 \*------------------------------------*/
+$bp-tab-and-big-phone: "only screen and (max-width: #{$solarsystem}) and (min-width: #{$planetary + 1}), only screen and (max-width: 400px)";
 .achieve {
     @extend %col;
-    @extend %light-col;
+    @extend %col--light;
     @extend %animation--fade-in;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    font-size: 1.2vw;
-    @include bp($solarsystem){
-        position: relative;
-        width: 50%;
-        margin-left: 50%;
-        font-size: 1rem;
+    @include bp($custom: $bp-tab-and-big-phone) {
+        border-top: $timeline-border-width solid $color-2;
         padding: 0;
+        margin-left: 50%;
     }
     &__group {
         position: absolute;
@@ -28,9 +22,6 @@
             &:before,
             &:after {
                 display: none;
-            }
-            @include bp($solarsystem){
-                border-top: $timeline-border-width solid $color-2;
             }
         }
         &--zen-principle {
@@ -57,7 +48,7 @@
         &--tech-achievement {
             @include year(false, 2005.65);
         }
-        @include bp($solarsystem){
+        @include bp($custom: $bp-tab-and-big-phone) {
             position: relative;
             top: 0;
             margin-bottom: $gap;
@@ -77,7 +68,7 @@
             top: 50%;
             border-width: $timeline-border-width 0 0;
             transform: translateY(-100%);
-            @include bp($solarsystem){
+            @include bp($custom: $bp-tab-and-big-phone) {
                 display: none;
             }
         }
@@ -89,7 +80,7 @@
             border-radius: 50%;
             background-color: $color-bg--light;
             transform: translate(-50%, -50%);
-            @include bp($solarsystem){
+            @include bp($custom: $bp-tab-and-big-phone) {
                 position: absolute;
                 top: .4em;
                 left: $gap;
@@ -101,7 +92,7 @@
             }
         }
         p {
-            @include bp($solarsystem){
+            @include bp($custom: $bp-tab-and-big-phone) {
                 padding: 0 $gap;
             }
         }
