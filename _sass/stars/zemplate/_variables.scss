@@ -39,16 +39,16 @@ $color-bg--light:   $color-2-lightest;
 /*------------------------------------*\
     ::Breakpoints
 \*------------------------------------*/
-$phone--min: 320px;
 $phone--max: 600px;
+$phone--min: 320px;
 $phone--mid: round($phone--min + ($phone--max - $phone--min)/2);
 
-$tab--min: $phone--max + 1;
 $tab--max: 960px;
+$tab--min: $phone--max + 1;
 $tab--mid: round($tab--min + ($tab--max - $tab--min)/2);
 
-$desk--min: $tab--max + 1;
 $desk--max: $row-width;
+$desk--min: $tab--max + 1;
 $desk--mid: round($desk--min + ($desk--max - $desk--min)/2);
 
 /*------------------------------------*\

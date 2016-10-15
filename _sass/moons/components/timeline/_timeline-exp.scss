@@ -7,11 +7,23 @@
     @extend %animation--fade-in;
     position: relative;
     padding-right: 0;
+    @include bp($phone--mid){
+        width: 100%;
+    }
     &__group {
         position: absolute;
         left: 0;
-        right: $timeline-width;
+        right: $timeline-width/2;
         padding: 0 $gap;
+        @include bp($tab--max){
+            right: $timeline-width;
+        }
+        @include bp($phone--max){
+            right: $timeline-width/2;
+        }
+        @include bp($phone--mid){
+            right: $timeline-width;
+        }
         &:last-of-type {
             &:after,
             &:before { // get rid of line for last item
@@ -60,12 +72,23 @@
         }
     }
     &__timeline {
+        position: relative;
+        right: -$timeline-width/2;
         float: right;
         width: $timeline-width;
         border: 0 solid $color-2;
         border-width: 0 $timeline-border-width;
         margin: 0;
         padding: 0;
+        @include bp($tab--max){
+            right: 0;
+        }
+        @include bp($phone--max){
+            right: -$timeline-width/2;
+        }
+        @include bp($phone--mid){
+            right: 0;
+        }
     }
     &__year {
         @extend %year;
