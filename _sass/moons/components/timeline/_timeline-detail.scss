@@ -6,7 +6,7 @@
     @extend %col--dark;
     @extend %animation--fade-in;
     padding: 0;
-    @include bp($planetary){
+    @include bp($phone--max){
         width: 100%;
     }
     &__inner--fixed {
@@ -17,13 +17,13 @@
         bottom: 0;
         width: $row-width/3; // defined in styles.scss
         padding: 0 $gap;
-        @include bp($min: $solarsystem + 1, $max: $row-width){
+        @include bp($min: $desk--min, $max: $desk--max){
             width: 33.33%;
         }
-        @include bp($solarsystem){
+        @include bp($tab--max){
             width: 50%;
         }
-        @include bp($planetary){
+        @include bp($phone--max){
             position: relative;
             width: 100%;
         }

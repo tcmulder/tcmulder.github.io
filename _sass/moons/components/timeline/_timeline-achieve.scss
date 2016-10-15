@@ -1,7 +1,7 @@
 /*------------------------------------*\
     ::Timeline Achieve (right/bottom)
 \*------------------------------------*/
-$bp-tab-and-big-phone: "only screen and (max-width: #{$solarsystem}) and (min-width: #{$planetary + 1}), only screen and (max-width: 400px)";
+$bp-tab-and-big-phone: "only screen and (max-width: #{$tab--max}) and (min-width: #{$tab--min}), only screen and (max-width: 400px)";
 .achieve {
     @extend %col;
     @extend %col--light;

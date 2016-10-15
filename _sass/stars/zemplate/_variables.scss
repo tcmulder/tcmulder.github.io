@@ -51,14 +51,6 @@ $desk--min: $tab--max + 1;
 $desk--max: $row-width;
 $desk--mid: round($desk--min + ($desk--max - $desk--min)/2);
 
-body {
-    foo: $phone--mid;
-}
-
-$galaxy:        $row-width;
-$solarsystem:   960px;
-$planetary:     600px;
-
 /*------------------------------------*\
     ::Layout
 \*------------------------------------*/

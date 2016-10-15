@@ -64,11 +64,11 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
     z-index: 10;
     width: 33.33%;
     padding: 0 $gap;
-    @include bp($solarsystem){
+    @include bp($tab--max){
         width: 50%;
         font-size: calc(.5rem + .7vw); // milder vw font resizing
     }
-    @include bp($planetary){
+    @include bp($phone--max){
         font-size: .9em;
         width: 50%;
     }
@@ -117,7 +117,7 @@ display: none;
         left: 0;
         right: 66.66%;
         background-color: rgba($color-1-dark,.85);
-        @include bp($solarsystem){
+        @include bp($tab--max){
             right: 50%;
         }
     }
@@ -127,7 +127,7 @@ display: none;
         left: 33.33%;
         right: 0;
         background-color: rgba(#fff, .92);
-        @include bp($solarsystem){
+        @include bp($tab--max){
             left: 50%;
         }
     }

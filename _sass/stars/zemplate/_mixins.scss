@@ -79,7 +79,7 @@
 // @include bp($max: 600px){ body { background:#000 } }
 // @include bp($min: 600px){ body { background:#fff } }
 // @include bp($min: 600px, $max: 600px){ body { background:#000 } }
-// @include bp($planetary){ body { background:#fff } }
+// @include bp($phone--max){ body { background:#fff } }
 // @include bp($custom:print and (color)){ body { background:#fff } }
 
 @mixin bp($media: false, $min: false, $max: false, $custom: false) {
