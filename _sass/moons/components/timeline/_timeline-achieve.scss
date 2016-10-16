@@ -4,8 +4,8 @@
 $bp-tab-and-big-phone: "only screen and (min-width: #{$tab--min}) and (max-width: #{$tab--max}), only screen and (max-width: #{$phone--mid})";
 .achieve {
     @extend %col;
-    @extend %col--light;
     @extend %animation--fade-in;
+    @include text-over-light();
     @include bp($custom: $bp-tab-and-big-phone) {
         border-top: $timeline-border-width solid $color-2;
         padding: 0;

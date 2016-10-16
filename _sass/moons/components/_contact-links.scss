@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    ::Contact Links
+\*------------------------------------*/
+.contact-links {
+    position: absolute;
+    bottom: $gap;
+    left: $gap;
+    right: $gap;
+    font-size: 0;
+    @include bp($custom: "only screen and (max-height: 699px), only screen and (max-width: #{$phone--max})"){
+        position: relative;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    &__title {
+        font-size: 1rem;
+    }
+    &__group {
+        display: inline-block;
+        width: 25%;
+        text-decoration: none;
+        font-size: 1rem;
+        text-align: center;
+        h3 {
+            @include bp($min: $phone--max, $max: $tab--mid){
+                font-size: 2.5vw;
+            }
+        }
+    }
+    &__icon {
+        width: 3em;
+        height: 3em;
+        fill: currentcolor;
+    }
+}

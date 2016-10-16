@@ -3,14 +3,6 @@
 \*------------------------------------*/
 
 /*------------------------------------*\
-    ::Common Vars
-\*------------------------------------*/
-$timeline-width:            3em; // timeline bar's width
-$timeline-gaps:             8em; // each year period's height
-$timeline-border-width:     .1875em; // all timeline borders
-$year-word-height:          .85em; // the height of the "20xx" word for centering
-
-/*------------------------------------*\
     ::Year Position Mixin
 \*------------------------------------*/
 // Usage:
@@ -62,31 +54,17 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
 %col {
     position: relative;
     z-index: 10;
-    width: 33.33%;
+    width: 33.3% - .08;
     padding: 0 $gap;
     @include bp($tab--max){
-        width: 50%;
+        width: 50% - .08;
         font-size: calc(.5rem + .7vw); // milder vw font resizing
     }
     @include bp($phone--max){
         font-size: .9em;
-        width: 50%;
+        width: 50% - .08;
     }
 }
-%col--dark {
-    z-index: 10;
-}
-%col--light {
-    z-index: 10;
-    h1, h2, h3, h5, h6 {
-        color: $color-1-dark;
-    }
-    h3 + h4 {
-        margin-top: -.4em;
-        margin-bottom: .4em;
-    }
-}
-
 
 /*------------------------------------*\
     ::Wrapper/Global Layout/Styling
@@ -102,31 +80,4 @@ $year-word-height:          .85em; // the height of the "20xx" word for centerin
         display: flex;
         flex-wrap: wrap;
     }
-    // &:before,
-    // &:after {
-    //    content: "";
-    //    display: block;
-    //    position: fixed;
-    //    z-index: 0;
-    //    top: 0;
-    //    bottom: 0;
-    // }
-    // &:before { // dark overlay
-    //     @extend %animation--fade-in;
-    //     left: 0;
-    //     right: 66.66%;
-    //     background-color: rgba($color-1-dark,.85);
-    //     @include bp($tab--max){
-    //         right: 50%;
-    //     }
-    // }
-    // &:after { // light overlay
-    //     @extend %animation--fade-in;
-    //     left: 33.33%;
-    //     right: 0;
-    //     background-color: rgba(#fff, .92);
-    //     @include bp($tab--max){
-    //         left: 50%;
-    //     }
-    // }
 }

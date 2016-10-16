@@ -77,32 +77,10 @@ $txt-color-3:       $color-3-dark;
 $fam--1:            'Vollkorn', serif;
 $fam--2:            'Signika', sans-serif;
 
-//internal/page anchor tags
-$a-color-link:      $color-2;
-$a-color-visited:   $a-color-link;
-$a-color-hover:     lighten($a-color-link,20%);
-$a-color-active:    lighten($a-color-link,30%);
-
-//global nav
-$g-color-link:      $color-3;
-$g-color-visited:   $g-color-link;
-$g-color-hover:     lighten($g-color-link,20%);
-$g-color-active:    lighten($g-color-link,30%);
-
-//local nav
-$l-color-link:      $g-color-link;
-$l-color-visited:   $l-color-link;
-$l-color-hover:     lighten($l-color-link,20%);
-$l-color-active:    lighten($l-color-link,30%);
-
-//secondary global nav
-$g-2-color-link:    $color-2;
-$g-2-color-visited: $g-2-color-link;
-$g-2-color-hover:   lighten($g-2-color-link,20%);
-$g-2-color-active:  lighten($g-2-color-link,20%);
-
-//secondary local nav
-$l-2-color-link:    $g-color-link;
-$l-2-color-visited: $l-2-color-link;
-$l-2-color-hover:   lighten($l-2-color-link,20%);
-$l-2-color-active:  lighten($l-2-color-link,10%);
+/*------------------------------------*\
+    ::Timeline
+\*------------------------------------*/
+$timeline-width:            3em; // timeline bar's width
+$timeline-gaps:             8em; // each year period's height
+$timeline-border-width:     .1875em; // all timeline borders
+$year-word-height:          .85em; // the height of the "20xx" word for centering

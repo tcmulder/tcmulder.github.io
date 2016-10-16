@@ -3,8 +3,8 @@
 \*------------------------------------*/
 .exp {
     @extend %col;
-    @extend %col--light;
     @extend %animation--fade-in;
+    @include text-over-light();
     position: relative;
     padding-right: 0;
     @include bp($phone--mid){

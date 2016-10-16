@@ -5,8 +5,11 @@
 \*------------------------------------*/
 a {
 	background: transparent;
-}
-a:active,
-a:hover {
-	outline: 0;
+    color: $color-1-light;
+    &:active,
+    &:hover {
+        color: $color-2;
+    	outline: 0;
+        transition: color 300ms;
+    }
 }

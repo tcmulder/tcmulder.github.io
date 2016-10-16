@@ -3,6 +3,8 @@
 \*------------------------------------*/
 $icon-slider-speed: 500ms;
 .icon-slider {
+    max-width: 18em;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -13,8 +15,9 @@ $icon-slider-speed: 500ms;
         position: relative;
         float: left;
         width: 20%;
-        max-width: 3em;
-        padding: .3em;
+        width: 2.5em;
+        height: 2.5em;
+        padding: .2em;
         border: .1875em solid $color-1-light;
         cursor: pointer;
         border-radius: 100%;
@@ -37,13 +40,12 @@ $icon-slider-speed: 500ms;
     &__slide {
         width: 100%;
         display: inline-block;
-        font-size: 2.3vw;
         vertical-align: top;
+        font-size: 1rem;
         h3 {
             white-space: normal;
-            padding-top: $gap-em;
             text-align: center;
-            margin-bottom: .5em;
+            margin: .4em 0 0;
             text-align: center;
             opacity: 0;
             transform: translateY(50%);
@@ -53,19 +55,26 @@ $icon-slider-speed: 500ms;
     &__chart {
         position: relative;
         margin: 0;
-        padding: 0;
-        padding-top: 75%;
+        padding: 55% 0 0;
         white-space: normal;
+        @include bp($custom: "only screen and (min-height: 700px)"){
+            padding-top: calc(100vh - 600px);
+        }
+        @include bp($custom: "only screen and (min-height: 900px)"){
+            padding-top: 75%;
+        }
     }
     &__stat {
-        position: static;
+        backface-visibility: hidden; // so many animations: prevent flashing
+        float: left;
         display: inline-block;
+        position: static;
         width: 12%;
+        margin: .2em 0 .7em;
         padding-left: 0;
         list-style: none;
-        float: left;
         line-height: 1;
-        backface-visibility: hidden; // so many animations: prevent flashing
+        font-size: 1rem;
         &:before,
         &:after { // bar/circle
             content: "";
@@ -76,7 +85,7 @@ $icon-slider-speed: 500ms;
             top: 0;
             bottom: 0;
             left: auto;
-            width: .3em;
+            width: .4em;
             height: auto;
             margin-left: 1.4em;
             background-image: linear-gradient(
@@ -99,7 +108,7 @@ $icon-slider-speed: 500ms;
             background: $color-bg--dark;
             border: .2em solid $color-2;
             border-radius: 50%;
-            transform: translate(105%, 30%);
+            transform: translate(110%, 30%);
             transition: bottom 0ms $icon-slider-speed;
         }
         span {
@@ -133,7 +142,6 @@ $icon-slider-speed: 500ms;
                 &:checked ~ .icon-slider__small-frame {
                     // slide transition
                     .icon-slider__big-frame {
-                        bookmark: translate(-#{$i*100%});
                         transform: translate(-#{$i*100%-100});
                     }
                     .icon-slider__slide--#{$i} {

@@ -3,15 +3,18 @@
 \*------------------------------------*/
 .detail {
     @extend %col;
-    @extend %col--dark;
     @extend %animation--fade-in;
     padding: 0;
     @include bp($phone--max){
+        @include text-over-light();
         width: 100%;
+        padding-bottom: $gap--big;
+        background-image: linear-gradient(to bottom, transparent, rgba(#fff, .9));
+        border-bottom: .2em solid $color-2;
     }
     &__inner--fixed {
         overflow-x: hidden;
-        overfly-y: auto;
+        overflow-y: auto;
         position: fixed;
         top: 0;
         bottom: 0;
