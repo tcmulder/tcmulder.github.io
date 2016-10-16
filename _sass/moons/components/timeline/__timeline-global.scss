@@ -14,10 +14,17 @@
 @mixin year($start-year, $end-year, $total-years: 2016) {
     $year-top: ($total-years - $end-year + 1) * $timeline-gaps + $year-word-height;
     $year-height: if($start-year, ($end-year - $start-year) * $timeline-gaps, false);
-
     top: $year-top;
     @if $start-year != false {
         height: $year-height;
+    }
+    @include bp($phone--max){
+        $year-top: ($total-years - $end-year + 1) * $timeline-gaps--large + $year-word-height;
+        $year-height: if($start-year, ($end-year - $start-year) * $timeline-gaps--large, false);
+        top: $year-top;
+        @if $start-year != false {
+            height: $year-height;
+        }
     }
 }
 
@@ -27,6 +34,9 @@
 %year {
     text-align: center;
     height: $timeline-gaps;
+    @include bp($phone--max){
+        height: $timeline-gaps--large;
+    }
     span {
         font-size: .75em;
     }
