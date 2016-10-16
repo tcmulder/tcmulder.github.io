@@ -39,30 +39,30 @@ $color-bg--light:   $color-2-lightest;
 /*------------------------------------*\
     ::Breakpoints
 \*------------------------------------*/
-$phone--max: 600px;
-$phone--min: 320px;
-$phone--mid: round($phone--min + ($phone--max - $phone--min)/2);
+$phone--max:        600px;
+$phone--min:        320px;
+$phone--mid:        round($phone--min + ($phone--max - $phone--min)/2);
 
-$tab--max: 960px;
-$tab--min: $phone--max + 1;
-$tab--mid: round($tab--min + ($tab--max - $tab--min)/2);
+$tab--max:          960px;
+$tab--min:          $phone--max + 1;
+$tab--mid:          round($tab--min + ($tab--max - $tab--min)/2);
 
-$desk--max: $row-width;
-$desk--min: $tab--max + 1;
-$desk--mid: round($desk--min + ($desk--max - $desk--min)/2);
+$desk--max:         $row-width;
+$desk--min:         $tab--max + 1;
+$desk--mid:         round($desk--min + ($desk--max - $desk--min)/2);
 
 /*------------------------------------*\
     ::Layout
 \*------------------------------------*/
-$pad:           0.9375rem;
-$gap:           $pad;
-$gap--big:      $gap*2;
-$gap--baby:     $gap*1.5;
+$pad:               0.9375rem;
+$gap:               $pad;
+$gap--big:          $gap*2;
+$gap--baby:         $gap*1.5;
 
-$pad-em:         0.9375em;
-$gap-em:         $pad-em;
-$gap-em--big:    $gap-em*2;
-$gap-em--baby:   $gap-em*1.5;
+$pad-em:            0.9375em;
+$gap-em:            $pad-em;
+$gap-em--big:       $gap-em*2;
+$gap-em--baby:      $gap-em*1.5;
 
 /*------------------------------------*\
     ::Text Styling
@@ -80,7 +80,7 @@ $fam--2:            'Signika', sans-serif;
 /*------------------------------------*\
     ::Timeline
 \*------------------------------------*/
-$timeline-width:            3em; // timeline bar's width
-$timeline-gaps:             8em; // each year period's height
-$timeline-border-width:     .1875em; // all timeline borders
-$year-word-height:          .85em; // the height of the "20xx" word for centering
+$timeline-width:            3em;        // timeline bar's width
+$timeline-gaps:             9em;        // each year period's height
+$timeline-border-width:     .1875em;    // all timeline borders
+$year-word-height:          .85em;      // the height of the "20**" word for centering

@@ -71,28 +71,4 @@
             transform: translate(50%, 50%);
         }
     }
-    &__timeline {
-        position: relative;
-        right: -$timeline-width/2;
-        float: right;
-        width: $timeline-width;
-        border: 0 solid $color-2;
-        border-width: 0 $timeline-border-width;
-        margin: 0;
-        padding: 0;
-        @include bp($tab--max){
-            right: 0;
-        }
-        @include bp($phone--max){
-            right: -$timeline-width/2;
-        }
-        @include bp($phone--mid){
-            right: 0;
-        }
-    }
-    &__year {
-        @extend %year;
-        margin: 0;
-        padding-left: 0;
-    }
 }
