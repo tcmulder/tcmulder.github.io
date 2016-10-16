@@ -2,7 +2,33 @@
     ::Main Footer
 \*------------------------------------*/
 .main-foot {
+    position: relative;
+    z-index: 10;
     float: left;
     width: 100%;
-    /*TEMP*/box-shadow:0 0 0 1px rgba(mediumaquamarine,.5) inset;background-color:rgba(mediumaquamarine,.5);
+    &__text {
+        border-top: $timeline-border-width solid $color-2;
+        float: right;
+        background-color: #fff;
+        width: 66.66%;
+        padding: .2em $gap;
+        @include bp($tab--max){
+            width: 50% - .08;
+            font-size: calc(.5rem + .7vw); // milder vw font resizing
+        }
+        @include bp($phone--max){
+            font-size: .9em;
+            width: 100%;
+        }
+    }
+    &__link {
+        color: $color-1-dark;
+        text-decoration: none;
+        &:hover {
+            color: $color-2;
+        }
+    }
+    &__copy {
+        float: right;
+    }
 }
