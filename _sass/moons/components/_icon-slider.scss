@@ -18,13 +18,32 @@ $icon-slider-speed: 500ms;
         width: 2.5em;
         height: 2.5em;
         padding: .3em;
-        border: .1875em solid $color-1-light;
-        cursor: pointer;
         border-radius: 100%;
         line-height: 0;
-        transition: border-color 300ms;
+        transition: 300ms;
+        cursor: pointer;
+        border: $timeline-border-width solid $color-2;
+        color: $color-2;
+        &:hover {
+            color: $color-1-light;
+            border-color: lighten($color-1,3%);
+        }
+        &:last-of-type {
+            &:after {
+                display: none;
+            }
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 2.2em;
+            top: 50%;
+            left: 100%;
+            border-top: $timeline-border-width solid $color-2;
+        }
         svg {
-            fill: $color-1-light;
+            fill: currentcolor;
             transition: fill 300ms;
         }
     }
@@ -131,9 +150,9 @@ $icon-slider-speed: 500ms;
     // active nav
     &__link:hover,
     input:checked + label {
-        border-color: $color-2;
+        border-color: lighten($color-1,3%);
         svg {
-            fill: $color-2;
+            fill: $color-1-light;
         }
     }
     input {
