@@ -1,7 +1,7 @@
 /*------------------------------------*\
     ::Mixins
     ----------------------------------*
-    ::Text Over Light
+    ::Text Colors
     ::Strip Unit
     ::Pixels to EMs
     ::Placeholder Color
@@ -13,11 +13,16 @@
 \*------------------------------------*/
 
 /*------------------------------------*\
-    ::Text Over Light
+    ::Text Colors
 \*------------------------------------*/
 @mixin text-over-light(){
     h1, h2, h3, h5, h6 {
         color: $color-1-dark;
+    }
+}
+@mixin text-over-dark(){
+    h1, h2, h3, h5, h6 {
+        color: $color-1-light;
     }
 }
 

@@ -54,16 +54,16 @@
             height: 50%;
             transform: rotate(45deg) scale(3);
             transform-origin: 50% 100%;
-            background-color: #fff;
+            background-color: $color-1-dark;
         }
         svg {
-            @include bp($min: $tab--min){
+            @include bp($min: $phone--max){
                 fill: #fff; // starting color
                 @include animation--fade-fill($name: logo-first, $from: #fff, $to: $color-1);
             }
             @include bp($phone--max){
-                fill: darken($color-bg--dark, 3%);
-                @include animation--fade-fill($name: logo-first-small, $from: darken($color-bg--dark, 3%), $to: lighten($color-1-light,40%));
+                fill: $color-1;
+                @include animation--fade-fill($name: logo-first-small, $from: $color-1-dark, $to: $color-1);
             }
         }
     }
@@ -82,15 +82,16 @@
             transform: rotate(45deg) scale(3);
             transform-origin: 50% 0;
             background-color: lighten($color-1-light,40%);
+            background-color: $color-1;
         }
         svg {
-            @include bp($min: $tab--min){
+            @include bp($min: $phone--max){
                 fill: $color-bg--dark; // starting color
                 @include animation--fade-fill($name: logo-second, $from: $color-bg--dark, $to: darken($color-2-lightest,3%));
             }
             @include bp($phone--max){
-                fill: lighten($color-bg--dark, 3%);
-                @include animation--fade-fill($name: logo-second-small, $from: lighten($color-bg--dark, 3%), $to: #fff);
+                fill: $color-1-dark;
+                @include animation--fade-fill($name: logo-second-small, $from: $color-1, $to: $color-1-dark);
             }
         }
         span {

@@ -6,10 +6,9 @@
     @extend %animation--fade-in;
     padding: 0;
     @include bp($phone--max){
-        @include text-over-light();
         width: 100%;
         padding-bottom: $gap--big;
-        background-image: linear-gradient(to bottom, transparent, rgba(#fff, .9));
+        background-image: linear-gradient(to bottom, transparent, rgba($color-1-dark, .9));
         border-bottom: .2em solid $color-2;
     }
     &__inner--fixed {

@@ -7,6 +7,9 @@
     @include text-over-light();
     position: relative;
     padding-right: 0;
+    @include bp($phone--max){
+        @include text-over-dark();
+    }
     @include bp($phone--mid){
         width: 100%;
     }
@@ -69,6 +72,9 @@
             border-radius: 50%;
             background-color: $color-bg--light;
             transform: translate(50%, 50%);
+            @include bp($phone--max){
+                background-color: $color-1-dark;
+            }
         }
     }
 }

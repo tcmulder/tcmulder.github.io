@@ -14,6 +14,9 @@ $bp-tab-and-big-phone: "only screen and (min-width: #{$tab--min}) and (max-width
     @include bp($min: $tab--min, $max: $tab--max){
         margin-left: 50%;
     }
+    @include bp($phone--max){
+        @include text-over-dark();
+    }
     &__group {
         position: absolute;
         left: $timeline-width/2;
@@ -93,6 +96,9 @@ $bp-tab-and-big-phone: "only screen and (min-width: #{$tab--min}) and (max-width
                 border: .15em solid $color-2;
                 border-radius: 50%;
                 transform: none;
+            }
+            @include bp($phone--max){
+                background-color: $color-1-dark;
             }
         }
         p {

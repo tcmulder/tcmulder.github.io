@@ -73,6 +73,7 @@
     @include bp($phone--max){
         font-size: .9em;
         width: 50% - .08;
+        padding-right: 7em;
     }
 }
 

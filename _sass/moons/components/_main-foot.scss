@@ -9,9 +9,10 @@
     &__text {
         border-top: $timeline-border-width solid $color-2;
         float: right;
-        background-color: #fff;
+        background-color: $color-2;
         width: 66.66%;
         padding: .2em $gap;
+        color: $color-1;
         @include bp($tab--max){
             width: 50% - .08;
             font-size: calc(.5rem + .7vw); // milder vw font resizing
