@@ -130,6 +130,13 @@ $icon-slider-speed: 500ms;
             transform: translate(110%, 30%);
             transition: bottom 0ms $icon-slider-speed;
         }
+        @for $i from 1 through 8 { // still for the &:after's
+            &:nth-child(#{$i}){
+                &:after {
+                    left: 90%; // need to adjust this to center on graph
+                }
+            }
+        }
         span {
             display: inline-block;
             white-space: nowrap;
