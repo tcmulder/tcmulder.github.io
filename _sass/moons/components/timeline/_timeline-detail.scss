@@ -5,6 +5,7 @@
     @extend %col;
     @extend %animation--fade-in;
     padding: 0;
+    z-index: 20; // above the other columns for the popup
     @include bp($phone--max){
         width: 100%;
         padding-bottom: $gap--big;
@@ -12,9 +13,9 @@
         border-bottom: .2em solid $color-2;
     }
     &__inner--fixed {
+        position: fixed;
         overflow-x: hidden;
         overflow-y: auto;
-        position: fixed;
         top: 0;
         bottom: 0;
         width: $row-width/3; // defined in styles.scss

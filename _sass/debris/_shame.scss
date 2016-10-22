@@ -7,7 +7,7 @@
 \*------------------------------------*/
 .detail__inner--fixed {
     @include bp($custom: "only screen and (max-height: 700px), only screen and (max-width: #{$phone--max})"){
-        transform: translateZ(0); //without this chrome won't scroll the contents of this div
+        backface-visibility: hidden; //without this chrome won't scroll the contents of this div
     }
 }
 
@@ -45,11 +45,10 @@ body {
     @include bp($phone--min){ &:before { content: "$phone--min"; } }
 }
 
-/*------------------------------------*\
-    ::Debug Without Animations
-\*------------------------------------*/
-%animation--fade-in {animation-name: none;opacity: 1;}
-
+// /*------------------------------------*\
+//     ::Debug Without Animations
+// \*------------------------------------*/
+// %animation--fade-in {animation-name: none;opacity: 1;}
 
 // /*------------------------------------*\
 //     ::Debug as Small

@@ -1,0 +1,68 @@
+/*------------------------------------*\
+    ::Popup Module
+\*------------------------------------*/
+.popup {
+    &__frame {
+        overflow: hidden;
+        position: fixed;
+        z-index: 100; // above everything
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 0;
+        padding: 0;
+        background-color: rgba($color-2,.8);
+        transition: opacity 300ms, padding 0ms 301ms, height 0ms 301ms;
+        font-size: 1rem; // parent has 0 to remove inline-block spacing
+        opacity: 0;
+    }
+    &__inner {
+        position: relative;
+        max-width: 40em;
+        padding: 3em $gap $gap;
+        background-color: #fff;
+        border-radius: .5em;
+        &:after { // offset border
+            content: "";
+            display: block;
+            position: absolute;
+            top: -.5em;
+            left: -.5em;
+            right: -.5em;
+            bottom: -.5em;
+            border: $timeline-border-width solid rgba($color-1-dark, .2);
+            border-radius: 1em;
+            z-index: -1;
+        }
+    }
+    &__close {
+        position: absolute;
+        top: $gap;
+        right: $gap;
+        font-family: $fam--2;
+        cursor: pointer;
+        transition: color 300ms;
+        &:hover {
+            color: $color-1;
+        }
+    }
+}
+
+// popup activation functionality
+.popup {
+    &__trigger {
+        &:checked {
+            & + .popup__frame {
+                overflow: auto;
+                height: 100%;
+                padding: 7% $gap $gap;
+                opacity: 1;
+                transition: opacity 300ms, padding 0ms, height 0ms;
+                .popup__inner {
+                    position: relative;
+                }
+            }
+        }
+    }
+}

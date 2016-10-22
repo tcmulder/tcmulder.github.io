@@ -23,25 +23,25 @@ title: Tomas Mulder's Resume
                 <h2>Qualifications</h2>
 
                 <div class="icon-slider">
-                    <input type="radio" name="icon-slider-nav" id="slide-1" checked />
+                    <input type="radio" name="icon-slider-nav" id="slide-1" class="icon-slider__trigger" checked />
                     <label for="slide-1" class="icon-slider__link">
                         <svg viewbox="0 0 1000 1000">
                             <use xlink:href="images/general.sprite.svg#brain"></use>
                         </svg>
                     </label>
-                    <input type="radio" name="icon-slider-nav" id="slide-2" />
+                    <input type="radio" name="icon-slider-nav" id="slide-2" class="icon-slider__trigger" />
                     <label for="slide-2" class="icon-slider__link">
                         <svg viewbox="0 0 1000 1000">
                             <use xlink:href="images/general.sprite.svg#code"></use>
                         </svg>
                     </label>
-                    <input type="radio" name="icon-slider-nav" id="slide-3" />
+                    <input type="radio" name="icon-slider-nav" id="slide-3" class="icon-slider__trigger" />
                     <label for="slide-3" class="icon-slider__link">
                         <svg viewbox="0 0 1000 1000">
                             <use xlink:href="images/general.sprite.svg#tools"></use>
                         </svg>
                     </label>
-                    <input type="radio" name="icon-slider-nav" id="slide-4" />
+                    <input type="radio" name="icon-slider-nav" id="slide-4" class="icon-slider__trigger" />
                     <label for="slide-4" class="icon-slider__link">
                         <svg viewbox="0 0 1000 1000">
                             <use xlink:href="images/general.sprite.svg#me"></use>
@@ -176,14 +176,14 @@ title: Tomas Mulder's Resume
                     <div class="contact-links__title">
                         <h2>Contact</h2>
                     </div>
-                    <a href="mailto:rockymountainlake@gmail.com" target="_blank" class="contact-links__group">
+                    <label for="popup--email" class="contact-links__group">
                         <span class="contact-links__icon">
                             <svg viewbox="0 0 1000 1000">
                                 <use xlink:href="images/general.sprite.svg#mail"></use>
                             </svg>
                         </span>
                         <h3>Email</h3>
-                    </a>
+                    </label>
                     <a href="https://github.com/tcmulder" target="_blank" class="contact-links__group">
                         <span class="contact-links__icon">
                             <svg viewbox="0 0 1000 1000">
@@ -212,6 +212,21 @@ title: Tomas Mulder's Resume
 
             </div> <!-- .detail__inner -->
         </div> <!-- .detail -->
+        <div class="popup">
+            <input type="checkbox" id="popup--email" class="popup__trigger" checked>
+            <div class="popup__frame">
+                <div class="popup__inner">
+                    <label for="popup--email" class="popup__close">
+                        <span>Close</span>
+                    </label>
+                    <form action="https://formspree.io/rockymountainlake@gmail.com" method="POST">
+                        <input type="text" name="name">
+                        <input type="email" name="_replyto">
+                        <input type="submit" value="Send">
+                    </form>
+                </div>
+            </div>
+        </div>
 
         <!-- - - - - - - - - - - - - - - - >
             ::Experience Column

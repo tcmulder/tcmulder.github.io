@@ -23,3 +23,12 @@
 %icon--active {
     border-color: $color-1-light;
 }
+%icon {
+    @extend %icon--up;
+    &:hover {
+        @extend %icon--over;
+    }
+    &:active {
+        @extend %icon--active;
+    }
+}

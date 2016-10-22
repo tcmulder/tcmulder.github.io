@@ -37,6 +37,9 @@ input::-moz-focus-inner {
 }
 input {
 	line-height: normal;
+	&[class*="__trigger"] { // allows inputs to be used as clickable triggers
+		display: none;
+	}
 }
 input[type="checkbox"],
 input[type="radio"] {

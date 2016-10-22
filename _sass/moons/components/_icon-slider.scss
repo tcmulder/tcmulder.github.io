@@ -8,9 +8,6 @@ $icon-slider-speed: 500ms;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    input {
-        display: none;
-    }
     &__link {
         @extend %icon--up;
         position: relative;
