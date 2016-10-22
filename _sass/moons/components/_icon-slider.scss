@@ -121,6 +121,7 @@ $icon-slider-speed: 500ms;
             transition: background-position 0ms $icon-slider-speed;
         }
         &:after { // circle
+            z-index: 1;
             bottom: 0;
             width: 1em;
             height: 1em;
@@ -130,10 +131,10 @@ $icon-slider-speed: 500ms;
             transform: translate(110%, 30%);
             transition: bottom 0ms $icon-slider-speed;
         }
-        @for $i from 1 through 8 { // still for the &:after's
-            &:nth-child(#{$i}){
+        @for $i from 0 through 8 { // for the &:after's in specific li's
+            &:nth-child(#{$i+1}){
                 &:after {
-                    left: 90%; // need to adjust this to center on graph
+                    left: 12% * $i;
                 }
             }
         }
