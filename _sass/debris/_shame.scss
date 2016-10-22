@@ -3,22 +3,29 @@
 \*------------------------------------*/
 
 /*------------------------------------*\
+    ::Chrome Scroll Bug Fix
+\*------------------------------------*/
+.detail__inner--fixed {
+    @include bp($custom: "only screen and (max-height: 700px), only screen and (max-width: #{$phone--max})"){
+        transform: translateZ(0); //without this chrome won't scroll the contents of this div
+    }
+}
+
+/*------------------------------------*\
     ::Text Tweaks
 \*------------------------------------*/
-h3 + h4 { // otherwise even with no margins between it's far away
+h3 + h4 { // otherwise even with no margins between it's far away with this font
     margin-top: -.4em;
     margin-bottom: .4em;
 }
 
 /*------------------------------------*\
-    ::Icon Slider Layout
+    ::Icon Slider Flicker/Pixel Render
 \*------------------------------------*/
 $icon-slider-speed: 500ms;
 .icon-slider {
     &__stat {
-        &:after { // circle
-            backface-visibility: hidden; // cuts pixels without this :-(
-        }
+        backface-visibility: hidden; // so many animations: prevent flashing and pixel cutting
     }
 }
 

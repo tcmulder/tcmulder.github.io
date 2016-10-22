@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    ::Extends
+    ----------------------------------*
+    ::Icon Interaction
+\*------------------------------------*/
+
+
+/*------------------------------------*\
+    ::Icon Interaction
+\*------------------------------------*/
+%icon--up {
+    transition: 300ms;
+    border: $timeline-border-width solid $color-2;
+    color: $color-2;
+    svg {
+        fill: currentcolor;
+    }
+}
+%icon--over {
+    color: $color-1-light;
+    border-color: lighten($color-1,3%);
+}
+%icon--active {
+    border-color: $color-1-light;
+}
