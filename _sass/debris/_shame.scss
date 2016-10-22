@@ -45,6 +45,12 @@ body {
     @include bp($phone--min){ &:before { content: "$phone--min"; } }
 }
 
+/*------------------------------------*\
+    ::Debug Without Animations
+\*------------------------------------*/
+%animation--fade-in {animation-name: none;opacity: 1;}
+
+
 // /*------------------------------------*\
 //     ::Debug as Small
 // \*------------------------------------*/
@@ -63,22 +69,6 @@ body {
 // \*------------------------------------*/
 // .exp { // center col
 //     &__group {
-//         &--zenman {
-//             @include year(2012, 2016);
-//              /*TEMP*/box-shadow:0 0 0 1px rgba(mediumaquamarine,.5) inset;background-color:rgba(mediumaquamarine,.5);
-//         }
-//         &--du {
-//             @include year(2010, 2012);
-//              /*TEMP*/box-shadow:0 0 0 1px rgba(red,.5) inset;background-color:rgba(red,.5);
-//         }
-//         &--usmc {
-//             @include year(2006, 2010);
-//              /*TEMP*/box-shadow:0 0 0 1px rgba(gray,.5) inset;background-color:rgba(gray,.5);
-//         }
-//         &--tech {
-//             @include year(2002, 2006);
-//              /*TEMP*/box-shadow:0 0 0 1px rgba(green,.5) inset;background-color:rgba(green,.5);
-//         }
 //         // /* ALL DEBUG */box-shadow:0 0 0 1px rgba(tomato,.5) inset !important;background-color:rgba(tomato,.5) !important;
 //     }
 // }
@@ -88,17 +78,7 @@ body {
 // \*------------------------------------*/
 // .icon-slider__stat {
 //     &:nth-child(2) {
-//         &:before {
-//             background-image: linear-gradient(
-//                 0deg,
-//                 red,
-//                 red 50%,
-//                 whitesmoke 50%,
-//                 whitesmoke
-//             );
-//         }
-//         &:after {
-//             border-color: blue !important;
-//         }
+//         &:before {background-image: linear-gradient(0deg,red,red 50%,whitesmoke 50%,whitesmoke);}
+//         &:after {border-color: blue !important;}
 //     }
 // }
