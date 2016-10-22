@@ -1,0 +1,6 @@
+/*------------------------------------*\
+    ::Main Torso
+\*------------------------------------*/
+.main-torso {
+    min-height: calc(100vh - #{$footer-height}); // full height minus footer
+}
