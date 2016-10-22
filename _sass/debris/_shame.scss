@@ -29,21 +29,21 @@ $icon-slider-speed: 500ms;
     }
 }
 
-/*------------------------------------*\
-    ::Body Breakpoint Debugger
-\*------------------------------------*/
-body {
-    &:before {content:"tv";position:fixed;right:0;bottom:0;opacity:.7;}
-    @include bp($desk--max){ &:before { content: "$desk--max"; } }
-    @include bp($desk--mid){ &:before { content: "$desk--mid"; } }
-    @include bp($desk--min){ &:before { content: "$desk--min"; } }
-    @include bp($tab--max){ &:before { content: "$tab--max"; } }
-    @include bp($tab--mid){ &:before { content: "$tab--mid"; } }
-    @include bp($tab--min){ &:before { content: "$tab--min"; } }
-    @include bp($phone--max){ &:before { content: "$phone--max"; } }
-    @include bp($phone--mid){ &:before { content: "$phone--mid"; } }
-    @include bp($phone--min){ &:before { content: "$phone--min"; } }
-}
+// /*------------------------------------*\
+//     ::Body Breakpoint Debugger
+// \*------------------------------------*/
+// body {
+//     &:before {content:"tv";position:fixed;right:0;bottom:0;opacity:.7;}
+//     @include bp($desk--max){ &:before { content: "$desk--max"; } }
+//     @include bp($desk--mid){ &:before { content: "$desk--mid"; } }
+//     @include bp($desk--min){ &:before { content: "$desk--min"; } }
+//     @include bp($tab--max){ &:before { content: "$tab--max"; } }
+//     @include bp($tab--mid){ &:before { content: "$tab--mid"; } }
+//     @include bp($tab--min){ &:before { content: "$tab--min"; } }
+//     @include bp($phone--max){ &:before { content: "$phone--max"; } }
+//     @include bp($phone--mid){ &:before { content: "$phone--mid"; } }
+//     @include bp($phone--min){ &:before { content: "$phone--min"; } }
+// }
 
 // /*------------------------------------*\
 //     ::Debug Without Animations
