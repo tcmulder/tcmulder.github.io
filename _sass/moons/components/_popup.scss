@@ -23,7 +23,7 @@
         padding: 3em $gap $gap;
         background-color: #fff;
         border-radius: .5em;
-        &:after { // offset border
+        &:before { // offset border
             content: "";
             display: block;
             position: absolute;

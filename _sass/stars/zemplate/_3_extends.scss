@@ -1,9 +1,24 @@
 /*------------------------------------*\
     ::Extends
     ----------------------------------*
+    ::Buttons
     ::Icon Interaction
 \*------------------------------------*/
 
+/*------------------------------------*\
+    ::Buttons
+\*------------------------------------*/
+%btn {
+    @extend %icon;
+    border: 0;
+    background-color: transparent;
+    border-radius: .2em;
+    padding: .2em .5em;
+    &:focus {
+        @extend %icon--over;
+        outline: none;
+    }
+}
 
 /*------------------------------------*\
     ::Icon Interaction
