@@ -10,21 +10,63 @@
 //     @include year(2010, 2015); // spans 2010 to 2015
 //     @include year(false, 2015); // starts at 2015 with auto height
 //     @include year(false, 2015.5); // starts at Jul 2, 2015 with auto height
+//     @include year(); // height spans 1 year with no top defined
 // }
-@mixin year($start-year, $end-year, $total-years: 2016) {
-    $year-top: ($total-years - $end-year + 1) * $timeline-gaps + $year-word-height;
-    $year-height: if($start-year, ($end-year - $start-year) * $timeline-gaps, false);
-    top: $year-top;
-    @if $start-year != false {
-        height: $year-height;
+@mixin year($start: 0, $end: 1, $total: 2016, $gaps: 9em) {
+    @include bp($min: $desk--max + 1){
+        @if $end != 1 {
+            top: get-year-top(false, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(false, $start, $end, $gaps);
+        }
+    }
+    @include bp($desk--max){
+        @if $end != 1 {
+            top: get-year-top(11.5vw, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(11.5vw, $start, $end, $gaps);
+        }
+    }
+    @include bp($tab--max){
+        @if $end != 1 {
+            top: get-year-top(16vw, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(16vw, $start, $end, $gaps);
+        }
     }
     @include bp($phone--max){
-        $year-top: ($total-years - $end-year + 1) * $timeline-gaps--large + $year-word-height;
-        $year-height: if($start-year, ($end-year - $start-year) * $timeline-gaps--large, false);
-        top: $year-top;
-        @if $start-year != false {
-            height: $year-height;
+        @if $end != 1 {
+            top: get-year-top(14.5vw, $start, $end, $total, $gaps);
         }
+        @if $start != false {
+            height: get-year-height(14.5vw, $start, $end, $gaps);
+        }
+    }
+    @include bp($phone--mid){
+        @if $end != 1 {
+            top: get-year-top(36vw, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(36vw, $start, $end, $gaps);
+        }
+    }
+}
+// calculation functions
+@function get-year-top($offset, $start, $end, $total, $gaps){
+    @if $offset == false {
+        @return calc((#{$gaps}) * (#{$total - $end + 1}));
+    } @else {
+        @return calc((#{$gaps} + (#{$gaps} - #{$offset})) * (#{$total - $end + 1}));
+    }
+}
+@function get-year-height($offset, $start, $end, $gaps){
+    @if $offset == false {
+        @return calc((#{$gaps}) * (#{$end - $start}));
+    } @else {
+        @return calc((#{$gaps} + (#{$gaps} - #{$offset})) * (#{$end - $start}));
     }
 }
 
@@ -32,16 +74,18 @@
     ::Reusable Global Extends
 \*------------------------------------*/
 %year {
+    @include year();
     text-align: center;
-    height: $timeline-gaps;
-    @include bp($phone--max){
-        height: $timeline-gaps--large;
-    }
-    span {
-        font-size: .75em;
+    &:first-child {
+        top: 1em;
     }
     &:last-child {
         height: 1.5em;
+    }
+    span {
+        display: block;
+        font-size: .75em;
+        transform: translateY(-50%);
     }
     &:before,
     &:after {
@@ -51,7 +95,7 @@
         border-width: $timeline-border-width 0 0;
         width: .4em;
         height: 0;
-        top: .7em;
+        top: -$timeline-border-width/2;
         border-radius: 0;
     }
     &:before {
@@ -71,7 +115,7 @@
         font-size: calc(.5rem + .7vw); // milder vw font resizing
     }
     @include bp($phone--max){
-        font-size: .9em;
+        font-size: 1em;
         width: 50% - .08;
         padding-right: 7em;
     }
