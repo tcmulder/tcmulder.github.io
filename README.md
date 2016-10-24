@@ -90,7 +90,7 @@ To develop creatively inspiring, functionally empowering, visually compelling, i
 ## Contact
 - Currently located in Denver, Colorado.
 - [CodePen](https://codepen.io/tcmulder/)
-- [GitHub](github.com/tcmulder)
+- [GitHub](http://github.com/tcmulder)
 - [@tcmulder](https://twitter.com/tcmulder) on Twitter
 
 
