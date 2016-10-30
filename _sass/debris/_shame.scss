@@ -3,6 +3,60 @@
 \*------------------------------------*/
 
 /*------------------------------------*\
+    ::Printers not Browsers
+\*------------------------------------*/
+@media print {
+    * {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: .1em !important;
+        margin: 0 !important;
+        background: transparent !important;
+        text-align: left !important;
+        color: #000 !important;
+        border: 0 !important;
+        font-size: 1rem !important;
+        transform: none !important;
+        opacity: 1 !important;
+        white-space: normal !important;
+    }
+    h1, h2 {
+        margin-top: 3rem !important;
+        font-size: 1.5rem !important;
+    }
+    h3, h4, h5, h6 {
+        margin-top: .8rem !important;
+        font-size: 1.2rem !important;
+    }
+    li {
+        display: list-item !important;
+        margin: 0 0 .2em 1em !important;
+        list-style: outside !important;
+    }
+    *:before, *:after {
+        display: none !important;
+    }
+    .print-version {
+        display: block;
+        &--email {
+            &:after {
+                content: "tcmulder@gmail.com";
+                display: block !important;
+            }
+        }
+    }
+    // hide these
+    .popup,
+    .icon-slider__link,
+    .timeline__year-list,
+    .main-foot,
+    svg {
+        display: none !important;
+    }
+}
+
+/*------------------------------------*\
     ::Chrome Scroll Bug Fix
 \*------------------------------------*/
 .detail__inner--fixed {

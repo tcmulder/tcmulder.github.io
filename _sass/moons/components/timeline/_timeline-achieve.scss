@@ -75,6 +75,8 @@ $bp-tab-and-big-phone: "only screen and (min-width: #{$tab--min}) and (max-width
             top: 50%;
             border-width: $timeline-border-width 0 0;
             transform: translateY(-100%);
+            border-radius: 0;
+            height: $timeline-border-width;
             @include bp($custom: $bp-tab-and-big-phone) {
                 display: none;
             }
