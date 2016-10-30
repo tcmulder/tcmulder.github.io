@@ -19,6 +19,14 @@
     h1, h2, h3, h5, h6 {
         color: $color-1-dark;
     }
+    a {
+        color: $color-1;
+        &:active,
+        &:hover,
+        &:focus {
+            color: $color-2-light;
+        }
+    }
 }
 @mixin text-over-dark(){
     h1, h2, h3, h5, h6 {

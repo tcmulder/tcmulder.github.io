@@ -6,10 +6,11 @@
 a {
 	background: transparent;
     color: $color-1-light;
+    text-decoration: none;
+    transition: color 300ms;
     &:active,
     &:hover {
-        color: $color-2;
-    	outline: 0;
-        transition: color 300ms;
+        color: $color-2-light;
+        outline: 0;
     }
 }
