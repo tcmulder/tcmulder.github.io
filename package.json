@@ -1,7 +1,7 @@
 {
-  "name": "zen-build",
+  "name": "basic-build",
   "version": "2.0.9",
-  "description": "The Zenman team's default built tool setup",
+  "description": "Based on the Zenman team's default built tool setup",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
