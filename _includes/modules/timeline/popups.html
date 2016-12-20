@@ -1,0 +1,25 @@
+<!-- - - - - - - - - - - - - - - - >
+    ::Popups
+<- - - - - - - - - - - - - - - - -->
+<div class="popup">
+    <input type="checkbox" id="popup--email" class="popup__trigger">
+    <div class="popup__frame">
+        <div class="popup__inner">
+            <label for="popup--email" class="popup__close">
+                <span>Close</span>
+            </label>
+            <form action="https://formspree.io/rockymountainlake@gmail.com" method="POST">
+                <input id="email-name" type="text" placeholder="what should I call you?" name="name">
+                <label for="email-name">Name:</label>
+                <input type="email" placeholder="how can I reach you?" name="_replyto">
+                <label for="email-mail">Email:</label>
+                <textarea name="message" id="email-message" placeholder="how can I help you?" cols="30" rows="4"></textarea>
+                <label for="email-message">Note:</label>
+                <input type="hidden" name="_subject" value="tcmulder.com - Contact Form">
+                <input type="hidden" name="_next" value="http://www.tcmulder.com/thank-you">
+                <input type="text" name="_gotcha" style="display:none" />
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </div>
+</div> <!-- .popup -->
