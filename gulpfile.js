@@ -153,7 +153,7 @@ gulp.task('watch', function(gulpCallback) {
             }, ['js-'+key, 'jekyll-rebuild']);
         }
 
-        gulp.watch(['./*.html', '_includes/*.html', '_layouts/*.html', '*.md', '_posts/*'], ['jekyll-rebuild']);
+        gulp.watch(['./*.html', '_includes/**/*.html', '_layouts/**/*.html', '*.md', '_posts/**/*'], ['jekyll-rebuild']);
 
         //css watch
         gulp.watch(config.sass.src+'**/*.scss',{
