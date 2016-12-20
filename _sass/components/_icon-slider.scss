@@ -67,7 +67,7 @@ $icon-slider-speed: 500ms;
         padding: 55% 0 0;
         white-space: normal;
         @include bp($custom: "only screen and (min-height: 700px)"){
-            padding-top: calc(100vh - 580px);
+            padding-top: calc(100vh - 600px);
         }
         @include bp($custom: "only screen and (min-height: 900px)"){
             padding-top: 75%;

@@ -101,6 +101,9 @@ textarea {
 	@extend %input-like-text;
 	padding: auto $pad $pad;
 }
+label {
+	cursor: pointer;
+}
 label {@at-root { form { // label styling dependent on siblings only on forms
 	input[type], // for specificity
 	textarea {
