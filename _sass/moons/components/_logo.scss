@@ -57,14 +57,7 @@
             background-color: $color-1-dark;
         }
         svg {
-            @include bp($min: $phone--max){
-                fill: #fff; // starting color
-                @include animation--fade-fill($name: logo-first, $from: #fff, $to: $color-1);
-            }
-            @include bp($phone--max){
-                fill: $color-1;
-                @include animation--fade-fill($name: logo-first-small, $from: $color-1-dark, $to: $color-1);
-            }
+            fill: $color-1;
         }
     }
     &__second {
@@ -86,12 +79,10 @@
         }
         svg {
             @include bp($min: $phone--max){
-                fill: $color-bg--dark; // starting color
-                @include animation--fade-fill($name: logo-second, $from: $color-bg--dark, $to: darken($color-2-lightest,3%));
+                fill: darken($color-2-lightest,3%);
             }
             @include bp($phone--max){
                 fill: $color-1-dark;
-                @include animation--fade-fill($name: logo-second-small, $from: $color-1, $to: $color-1-dark);
             }
         }
         span {

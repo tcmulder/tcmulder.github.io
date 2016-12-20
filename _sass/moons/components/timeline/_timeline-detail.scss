@@ -3,7 +3,6 @@
 \*------------------------------------*/
 .detail {
     @extend %col;
-    @extend %animation--fade-in;
     padding: 0;
     z-index: 20; // above the other columns for the popup
     @include bp($phone--max){
