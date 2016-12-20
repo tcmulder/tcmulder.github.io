@@ -1,6 +1,7 @@
 /*------------------------------------*\
     ::Mixins
     ----------------------------------*
+    ::Clearfix
     ::Text Colors
     ::Strip Unit
     ::Pixels to EMs
@@ -10,7 +11,19 @@
     ::Changing grid-column to col
     ::Sticky Footer
     ::Nav
+    ::Grid Row
 \*------------------------------------*/
+
+/*------------------------------------*\
+    ::Clearfix
+\*------------------------------------*/
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
 
 /*------------------------------------*\
     ::Text Colors
@@ -294,4 +307,17 @@
             }
         }
     }
+}
+
+/*------------------------------------*\
+    ::Grid Row
+\*------------------------------------*/
+@mixin grid-row() {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: $row-width;
+    @include clearfix();
 }

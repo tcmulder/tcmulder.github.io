@@ -2,8 +2,8 @@
     ::Variables
     ----------------------------------*
     ::Colors
-    ::Breakpoints
     ::Layout
+    ::Breakpoints
     ::Text Styling
 \*------------------------------------*/
 
@@ -37,6 +37,21 @@ $color-bg--dark:    $color-1-dark;
 $color-bg--light:   $color-2-lightest;
 
 /*------------------------------------*\
+    ::Layout
+\*------------------------------------*/
+$row-width:         1440px; //sets the width of rows (prod:1440px/dev:1024px)
+
+$pad:               0.9375rem;
+$gap:               $pad;
+$gap--big:          $gap*2;
+$gap--baby:         $gap*1.5;
+
+$pad-em:            0.9375em;
+$gap-em:            $pad-em;
+$gap-em--big:       $gap-em*2;
+$gap-em--baby:      $gap-em*1.5;
+
+/*------------------------------------*\
     ::Breakpoints
 \*------------------------------------*/
 $phone--max:        600px;
@@ -50,19 +65,6 @@ $tab--mid:          round($tab--min + ($tab--max - $tab--min)/2);
 $desk--max:         $row-width;
 $desk--min:         $tab--max + 1;
 $desk--mid:         round($desk--min + ($desk--max - $desk--min)/2);
-
-/*------------------------------------*\
-    ::Layout
-\*------------------------------------*/
-$pad:               0.9375rem;
-$gap:               $pad;
-$gap--big:          $gap*2;
-$gap--baby:         $gap*1.5;
-
-$pad-em:            0.9375em;
-$gap-em:            $pad-em;
-$gap-em--big:       $gap-em*2;
-$gap-em--baby:      $gap-em*1.5;
 
 /*------------------------------------*\
     ::Text Styling
