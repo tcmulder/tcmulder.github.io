@@ -183,6 +183,7 @@ gulp.task('default', ['watch']);
 \*------------------------------------*/
 function exitHandler(options, err) {
     var shell = require('gulp-shell');
+    console.log("\nrunning `pkill -f jekyll`");
     gulp.src('').pipe(shell('pkill -f jekyll'));
     process.exit();
 }
