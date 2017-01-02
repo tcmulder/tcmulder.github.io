@@ -1,0 +1,132 @@
+/*------------------------------------*\
+            (╯°□°）╯︵ ┻━┻
+\*------------------------------------*/
+
+/*------------------------------------*\
+    ::Printers not Browsers
+\*------------------------------------*/
+@media print {
+    * {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: .1em !important;
+        margin: 0 !important;
+        background: transparent !important;
+        text-align: left !important;
+        color: #000 !important;
+        border: 0 !important;
+        font-size: 1rem !important;
+        transform: none !important;
+        opacity: 1 !important;
+        white-space: normal !important;
+    }
+    h1, h2 {
+        margin-top: 3rem !important;
+        font-size: 1.5rem !important;
+    }
+    h3, h4, h5, h6 {
+        margin-top: .8rem !important;
+        font-size: 1.2rem !important;
+    }
+    li {
+        display: list-item !important;
+        margin: 0 0 .2em 1em !important;
+        list-style: outside !important;
+    }
+    *:before, *:after {
+        display: none !important;
+    }
+    .print-version {
+        display: block;
+        &--email {
+            &:after {
+                content: "tcmulder@gmail.com";
+                display: block !important;
+            }
+        }
+    }
+    // hide these
+    .popup,
+    .icon-slider__link,
+    .timeline__year-list,
+    .main-foot,
+    svg {
+        display: none !important;
+    }
+}
+
+/*------------------------------------*\
+    ::Chrome Scroll Bug Fix
+\*------------------------------------*/
+.detail__inner--fixed {
+    @include bp($custom: "only screen and (max-height: 700px), only screen and (max-width: #{$phone--max})"){
+        backface-visibility: hidden; //without this chrome won't scroll the contents of this div
+    }
+}
+
+/*------------------------------------*\
+    ::Text Tweaks
+\*------------------------------------*/
+h3 + h4 { // otherwise even with no margins between it's far away with this font
+    margin-top: -.4em;
+    margin-bottom: .4em;
+}
+
+/*------------------------------------*\
+    ::Icon Slider Flicker/Pixel Render
+\*------------------------------------*/
+$icon-slider-speed: 500ms;
+.icon-slider {
+    &__stat {
+        backface-visibility: hidden; // so many animations: prevent flashing and pixel cutting
+    }
+}
+
+// /*------------------------------------*\
+//     ::Body Breakpoint Debugger
+// \*------------------------------------*/
+// body {
+//     &:before {content:"tv";position:fixed;right:0;bottom:0;opacity:.7;}
+//     @include bp($desk--max){ &:before { content: "$desk--max"; } }
+//     @include bp($desk--mid){ &:before { content: "$desk--mid"; } }
+//     @include bp($desk--min){ &:before { content: "$desk--min"; } }
+//     @include bp($tab--max){ &:before { content: "$tab--max"; } }
+//     @include bp($tab--mid){ &:before { content: "$tab--mid"; } }
+//     @include bp($tab--min){ &:before { content: "$tab--min"; } }
+//     @include bp($phone--max){ &:before { content: "$phone--max"; } }
+//     @include bp($phone--mid){ &:before { content: "$phone--mid"; } }
+//     @include bp($phone--min){ &:before { content: "$phone--min"; } }
+// }
+
+// /*------------------------------------*\
+//     ::Debug as Small
+// \*------------------------------------*/
+// .main-torso {transform: scale(.9); transform-origin: center top;}.timeline__col { width: 33.33% !important; }
+
+// /*------------------------------------*\
+//     ::Make it small so it's easer to edit text
+// \*------------------------------------*/
+// .exp__timeline,.main-head,.detail {display: none;}
+// .timeline__col {width: 100%;}
+// .timeline {margin-top: 0;&:before,&:after {display: none;}}
+// .exp__group,.achieve__group {position: static;height: auto;top: 0;transform: none;border-bottom: 1px solid red;}
+
+// /*------------------------------------*\
+//     ::Exp Position Debugger
+// \*------------------------------------*/
+// .exp { // center col
+//     &__group {
+//         // /* ALL DEBUG */box-shadow:0 0 0 1px rgba(tomato,.5) inset !important;background-color:rgba(tomato,.5) !important;
+//     }
+// }
+
+// /*------------------------------------*\
+//     ::Icon Slider Debug
+// \*------------------------------------*/
+// .icon-slider__stat {
+//     &:nth-child(2) {
+//         &:before {background-image: linear-gradient(0deg,red,red 50%,whitesmoke 50%,whitesmoke);}
+//         &:after {border-color: blue !important;}
+//     }
+// }

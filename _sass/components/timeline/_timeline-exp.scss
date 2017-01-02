@@ -1,0 +1,82 @@
+/*------------------------------------*\
+    ::Timeline Experience (center/right)
+\*------------------------------------*/
+.exp {
+    @extend %col;
+    @include text-over-light();
+    position: relative;
+    padding-right: 0;
+    @include bp($phone--max){
+        @include text-over-dark();
+    }
+    @include bp($phone--mid){
+        width: 100%;
+    }
+    &__group {
+        position: absolute;
+        left: 0;
+        right: $timeline-width/2;
+        padding: 0 $gap;
+        @include bp($tab--max){
+            right: $timeline-width;
+        }
+        @include bp($phone--max){
+            right: $timeline-width/2;
+        }
+        @include bp($phone--mid){
+            right: $timeline-width;
+        }
+        &:last-of-type {
+            &:after,
+            &:before { // get rid of line for last item
+                display: none;
+            }
+        }
+        &--title {
+            &:before,
+            &:after {
+                display: none;
+            }
+        }
+        &--hire {
+            @include year(2016, 2017.5);
+        }
+        &--zenman {
+            @include year(2012, 2016);
+        }
+        &--du {
+            @include year(2010, 2012);
+        }
+        &--usmc {
+            @include year(2006, 2010);
+        }
+        &--tech {
+            @include year(2002, 2006);
+        }
+        &:before,
+        &:after { // circle/line for exp
+            content: "";
+            position: absolute;
+            border: $timeline-border-width solid $color-2;
+            z-index: 10;
+        }
+        &:before { // line for exp
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-width: $timeline-border-width 0 0;
+        }
+        &:after { // circle for exp
+            right: -$timeline-border-width*.5;
+            bottom: $timeline-border-width*.4;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background-color: $color-bg--light;
+            transform: translate(50%, 50%);
+            @include bp($phone--max){
+                background-color: $color-1-dark;
+            }
+        }
+    }
+}

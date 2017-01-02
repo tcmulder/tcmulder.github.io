@@ -1,10 +1,4 @@
 /*------------------------------------*\
-    ::Zen Build
-    -----------------------------------*
-    ::version 2.0.9
-\*------------------------------------*/
-
-/*------------------------------------*\
     ::Plugins
 \*------------------------------------*/
 // initial
@@ -13,7 +7,7 @@ var gulp = require('gulp');
 /*------------------------------------*\
     ::Configuration
 \*------------------------------------*/
-var config = require('./zen-config.js');
+var config = require('./build-config.js');
 
 /*------------------------------------*\
     ::Task Definitions
@@ -159,7 +153,7 @@ gulp.task('watch', function(gulpCallback) {
             }, ['js-'+key, 'jekyll-rebuild']);
         }
 
-        gulp.watch(['./*.html', '_includes/*.html', '_layouts/*.html', '*.md', '_posts/*'], ['jekyll-rebuild']);
+        gulp.watch(['./*.html', '_includes/**/*.html', '_layouts/**/*.html', '*.md', '_posts/**/*'], ['jekyll-rebuild']);
 
         //css watch
         gulp.watch(config.sass.src+'**/*.scss',{
@@ -189,6 +183,7 @@ gulp.task('default', ['watch']);
 \*------------------------------------*/
 function exitHandler(options, err) {
     var shell = require('gulp-shell');
+    console.log("\nrunning `pkill -f jekyll`");
     gulp.src('').pipe(shell('pkill -f jekyll'));
     process.exit();
 }

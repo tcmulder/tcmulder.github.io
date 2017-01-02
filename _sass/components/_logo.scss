@@ -1,0 +1,99 @@
+/*------------------------------------*\
+    ::Logo
+    -----------------------------------
+    Note: colors and special styling
+    spread out within implementation
+    files for better organization.
+\*------------------------------------*/
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    span { // FF rotates svg's incorrectly
+        display: block;
+        position: relative;
+        top: 0;
+        transform: rotate(20deg);
+        height: 100vh;
+        width: 100vw;
+        @include bp($desk--max){
+            transform: rotate(30deg);
+        }
+        @include bp($tab--max){
+            transform: rotate(45deg);
+        }
+        @include bp($phone--max){
+            transform: scale(.4);
+        }
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &__first,
+    &__second {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+    &__first {
+        left: 0;
+        width: calc(50% - #{$row-width/6});
+        background-color: $color-bg--dark;
+        @include bp($desk--max){
+            width: 33.33%;
+        }
+        @include bp($tab--max){
+            width: 50%;
+        }
+        @include bp($phone--max){
+            width: 100%;
+            height: 50%;
+            transform: rotate(45deg) scale(3);
+            transform-origin: 50% 100%;
+            background-color: $color-1-dark;
+        }
+        svg {
+            fill: $color-1;
+        }
+    }
+    &__second {
+        z-index: -1;
+        right: 0;
+        width: 66.66%;
+        background-color: #fff;
+        @include bp($tab--max){
+            width: 50%;
+        }
+        @include bp($phone--max){
+            top: 50%;
+            width: 100%;
+            height: 50%;
+            transform: rotate(45deg) scale(3);
+            transform-origin: 50% 0;
+            background-color: lighten($color-1-light,40%);
+            background-color: $color-1;
+        }
+        svg {
+            @include bp($min: $phone--max){
+                fill: darken($color-2-lightest,3%);
+            }
+            @include bp($phone--max){
+                fill: $color-1-dark;
+            }
+        }
+        span {
+            left: -33.33vw;
+            @include bp($tab--max){
+                left: -50vw;
+            }
+            @include bp($phone--max){
+                left: 0;
+                top: -50vh;
+            }
+        }
+    }
+}
