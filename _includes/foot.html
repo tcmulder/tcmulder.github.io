@@ -1,3 +1,6 @@
+{% comment %}
+    Items to be loaded before the closing </body> tag.
+{% endcomment %}
 {% if page.default_js %}
     {% for js_file in page.default_js %}
         <script src='/js/{{ js_file }}.js' type="text/javascript"></script>

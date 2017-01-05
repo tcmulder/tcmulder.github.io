@@ -1,9 +1,66 @@
 /*------------------------------------*\
     ::Extends
     ----------------------------------*
+    ::Years
+    ::Columns
     ::Buttons
     ::Icon Interaction
 \*------------------------------------*/
+
+/*------------------------------------*\
+    ::Years
+\*------------------------------------*/
+%year {
+    @include year();
+    text-align: center;
+    &:first-child {
+        top: 1em;
+    }
+    &:last-child {
+        height: 1.5em;
+    }
+    span {
+        display: block;
+        font-size: .75em;
+        transform: translateY(-50%);
+    }
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        border: 0 solid $color-2;
+        border-width: $timeline-border-width 0 0;
+        width: .4em;
+        height: 0;
+        top: -$timeline-border-width/2;
+        border-radius: 0;
+    }
+    &:before {
+        left: 0;
+    }
+    &:after {
+        right: 0;
+    }
+}
+
+/*------------------------------------*\
+    ::Columns
+\*------------------------------------*/
+%col {
+    position: relative;
+    z-index: 10;
+    width: 33.3% - .08;
+    padding: 0 $gap;
+    @include bp($tab--max){
+        width: 50% - .08;
+        font-size: calc(.5rem + .7vw); // milder vw font resizing
+    }
+    @include bp($phone--max){
+        font-size: 1em;
+        width: 50% - .08;
+        padding-right: 7em;
+    }
+}
 
 /*------------------------------------*\
     ::Buttons
