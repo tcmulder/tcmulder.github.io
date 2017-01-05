@@ -1,6 +1,7 @@
 /*------------------------------------*\
     ::Mixins
     ----------------------------------*
+    ::Year Position Mixin
     ::Clearfix
     ::Text Colors
     ::Strip Unit
@@ -13,6 +14,74 @@
     ::Nav
     ::Grid Row
 \*------------------------------------*/
+
+/*------------------------------------*\
+    ::Year Position Mixin
+\*------------------------------------*/
+// Usage:
+// .el {
+//     @include year(2010, 2015); // spans 2010 to 2015
+//     @include year(false, 2015); // starts at 2015 with auto height
+//     @include year(false, 2015.5); // starts at Jul 2, 2015 with auto height
+//     @include year(); // height spans 1 year with no top defined
+// }
+@mixin year($start: 0, $end: 1, $total: 2017, $gaps: 9em) {
+    @include bp($min: $desk--max + 1){
+        @if $end != 1 {
+            top: get-year-top(false, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(false, $start, $end, $gaps);
+        }
+    }
+    @include bp($desk--max){
+        @if $end != 1 {
+            top: get-year-top(11.5vw, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(11.5vw, $start, $end, $gaps);
+        }
+    }
+    @include bp($tab--max){
+        @if $end != 1 {
+            top: get-year-top(16vw, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(16vw, $start, $end, $gaps);
+        }
+    }
+    @include bp($phone--max){
+        @if $end != 1 {
+            top: get-year-top(14.5vw, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(14.5vw, $start, $end, $gaps);
+        }
+    }
+    @include bp($phone--mid){
+        @if $end != 1 {
+            top: get-year-top(36vw, $start, $end, $total, $gaps);
+        }
+        @if $start != false {
+            height: get-year-height(36vw, $start, $end, $gaps);
+        }
+    }
+}
+// calculation functions
+@function get-year-top($offset, $start, $end, $total, $gaps){
+    @if $offset == false {
+        @return calc((#{$gaps}) * (#{$total - $end + 1}));
+    } @else {
+        @return calc((#{$gaps} + (#{$gaps} - #{$offset})) * (#{$total - $end + 1}));
+    }
+}
+@function get-year-height($offset, $start, $end, $gaps){
+    @if $offset == false {
+        @return calc((#{$gaps}) * (#{$end - $start}));
+    } @else {
+        @return calc((#{$gaps} + (#{$gaps} - #{$offset})) * (#{$end - $start}));
+    }
+}
 
 /*------------------------------------*\
     ::Clearfix

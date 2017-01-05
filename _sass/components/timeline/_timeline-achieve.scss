@@ -29,6 +29,10 @@ $bp-tab-and-big-phone: "only screen and (min-width: #{$tab--min}) and (max-width
                 display: none;
             }
         }
+        /* portfolio note:
+            By creating a mixin and applying it to BEM modifier classes, the
+            HTML remains semantic and the code is DRY and well organized.
+        */
         &--zen-principle {
             @include year(false, 2016);
         }
