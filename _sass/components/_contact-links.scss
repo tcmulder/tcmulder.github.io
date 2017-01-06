@@ -7,6 +7,11 @@
     left: $gap;
     right: $gap;
     font-size: 0;
+    /*  portfolio note:
+        Oh boy--my mixin wasn't exactly set up to do vertical media queries.
+        It was necessary here since it's all fixed/absolute positioning (yuck)
+        and otherwise things get cut off irretrievably from the viewport.
+    */
     @include bp($custom: "only screen and (max-height: 700px), only screen and (max-width: #{$phone--max})"){
         position: relative;
         right: 0;
