@@ -17,6 +17,12 @@
         display: inline-block;
         font-family: $fam--2;
         padding: 1em .5em 1em 3em;
+        /*  portfolio note:
+            In Sublime this //&, / * DEBUG * / lets me easily toggle on/off
+            something that usually is only active hon some sort of user
+            interaction or page state using command+/ on my keyboard. The
+            [class] here was just needed to bump up the specificity a smidgen.
+        */
         // &[class], /* DEBUG */
         &:hover {
             span {

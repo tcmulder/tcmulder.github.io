@@ -11,6 +11,10 @@
     ::Years
 \*------------------------------------*/
 %year {
+    /*  portfolio note:
+        Only wanted to include the essentials within the mixin since those get
+        repeated in-place. By using a placeholder, I save a few bytes.
+    */
     @include year();
     text-align: center;
     &:first-child {

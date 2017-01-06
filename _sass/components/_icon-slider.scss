@@ -1,6 +1,11 @@
 /*------------------------------------*\
     ::Icon Slider Layout
 \*------------------------------------*/
+/*  portfolio note:
+    I'm pretty proud of this :-) It's a pure CSS slider with an animated
+    graph. I'd never use this on a client's production site btw, just wanted
+    the challenge of building it into my portfolio.
+*/
 $icon-slider-speed: 500ms;
 .icon-slider {
     max-width: 18em;
@@ -67,6 +72,10 @@ $icon-slider-speed: 500ms;
         padding: 55% 0 0;
         white-space: normal;
         @include bp($custom: "only screen and (min-height: 700px)"){
+            /*  portfolio note:
+                This is cool: it shrinks/grows with the browser's height,
+                resizing the entire graph within it.
+            */
             padding-top: calc(100vh - 600px);
         }
         @include bp($custom: "only screen and (min-height: 900px)"){
@@ -133,6 +142,12 @@ $icon-slider-speed: 500ms;
             transform: translate(-6%, 100%) rotate(-85deg);
             transform-origin: 0.55em -0.35em;
             font-size: .9em;
+            /*  portfolio note:
+                Nifty trick to get angled text that pushes down elements
+                beneath it (not possible with simple absolute positioning:
+                you'd need to guess at the height of the tallest element and
+                it'd need to never change).
+            */
             &:after {
                 content: "";
                 float: left;

@@ -49,6 +49,14 @@
     }
 }
 
+/*  portfolio note:
+    It's really non-semantic and I'd never use it in a client's production
+    site, but by using form controls you can activate a popup (which has its
+    HTML in the footer) from any place on the page just using :checked. For
+    example, click on "email me about jobs" at the top of the page or the
+    Email link and icon in the Contact section and both'll bring up the same
+    popup.
+*/
 // popup activation functionality
 .popup {
     &__trigger {

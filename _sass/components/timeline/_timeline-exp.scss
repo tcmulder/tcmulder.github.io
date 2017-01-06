@@ -38,6 +38,10 @@
                 display: none;
             }
         }
+        /* portfolio note:
+            By creating a mixin and applying it to BEM modifier classes, the
+            HTML remains semantic and the code is DRY and well organized.
+        */
         &--hire {
             @include year(2016, 2017.5);
         }
