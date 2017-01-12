@@ -122,6 +122,14 @@
     h1, h2, h3, h5, h6 {
         color: $color-1-light;
     }
+    a {
+        color: $color-1-light;
+        &:active,
+        &:hover,
+        &:focus {
+            color: $color-2-light;
+        }
+    }
 }
 
 /*------------------------------------*\

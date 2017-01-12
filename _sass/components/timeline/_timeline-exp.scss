@@ -43,7 +43,7 @@
             HTML remains semantic and the code is DRY and well organized.
         */
         &--hire {
-            @include year(2016, 2017.5);
+            @include year(2016, 2017.63);
         }
         &--zenman {
             @include year(2012, 2016);
