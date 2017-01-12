@@ -8,9 +8,15 @@ a {
     color: $color-1-light;
     text-decoration: none;
     transition: color 300ms;
+    h1, h2, h3, h4, h5, h6 {
+        transition: color 300ms;
+    }
     &:active,
     &:hover {
         color: $color-2-light;
         outline: 0;
+        h1, h2, h3, h4, h5, h6 {
+            color: $color-2-light;
+        }
     }
 }
