@@ -3,8 +3,49 @@
 \*------------------------------------*/
 .basic-col {
     &__dark {
+        float: left;
         width: 33.33%;
         padding: $gap;
+        width: $row-width/3; // defined in styles.scss
+        @include bp($min: $desk--min, $max: $desk--max){
+            width: 33.33%;
+        }
+        @include bp($tab--max){
+            width: 50%;
+        }
+        @include bp($phone--max){
+            position: relative;
+            width: 100%;
+        }
+        &--fixed {
+            position: fixed;
+            overflow: auto;
+            top: 0;
+            bottom: 0;
+            @include bp($phone--max){
+                position: relative;
+            }
+            & + .basic-col__light {
+                margin-left: 33.33%;
+                @include bp($tab--max){
+                    margin-left: 50%;
+                }
+                @include bp($phone--max){
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    &__light {
+        float: left;
+        width: 66.66%;
+        padding: $gap;
+        &--narrow {
+            width: 33.33%;
+        }
+        @include bp($min: $tab--min){
+            @include text-over-light();
+        }
         @include bp($tab--max){
             width: 50%;
         }
@@ -44,7 +85,7 @@
                 &:after { // house frame
                     height: .6em;
                     background-color: darken($color-1-dark, 5%);
-                    border-color: $color-1-light;
+                    border-color: darken($color-1-light, 12%);
                     transition: all 200ms, height 200ms 200ms, border 200ms 200ms;
                     transform: translate(.5em, 0) rotate(0);
                 }

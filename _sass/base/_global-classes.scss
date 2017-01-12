@@ -4,3 +4,8 @@
 .print-version {
     display: none;
 }
+.title {
+    &--tight-bottom {
+        margin-bottom: 0;
+    }
+}
