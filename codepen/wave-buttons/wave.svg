@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3579 157" preserveAspectRatio="none">
+    <defs>
+        <linearGradient id="wave-up" x1="0%" y1="50%" x2="100%" y2="50%" >
+            <stop offset="0%" style="stop-color:rgb(244,234,27);stop-opacity:.5" />
+            <stop offset="34%" style="stop-color:rgb(132,198,90);stop-opacity:.5" />
+            <stop offset="78%" style="stop-color:rgb(62,142,104);stop-opacity:.5" />
+            <stop offset="100%" style="stop-color:rgb(15,101,100);stop-opacity:.5" />
+        </linearGradient>
+    </defs>
+    <path fill="url(#wave-up)" fill-rule="evenodd" d="M3142.69862,66 C3358.45474,130.080652 3504.04525,160.413985 3579.47015,157 L0,157 C126.034795,152.618787 252.007719,122.285454 377.918774,66 C566.785356,-18.4281804 1079.4552,-22.5508048 1402.13404,80.1406634 C1507.03506,113.525067 1644.1029,120.010917 1789.64609,119.201837 C2074.26293,117.619642 2391.29096,71.1953432 2563.55692,24.7915577 C2654.71222,0.236787524 2863.11091,-17.0389534 3142.69862,66 Z"/>
+</svg>
